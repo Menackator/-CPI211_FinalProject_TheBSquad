@@ -9,21 +9,22 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 	{
 		[SerializeField] float m_MovingTurnSpeed = 360;
 		[SerializeField] float m_StationaryTurnSpeed = 180;
-		[SerializeField] float m_JumpPower = 12f;
+		[SerializeField] float m_JumpPower = 6f;
 		[Range(1f, 4f)][SerializeField] float m_GravityMultiplier = 2f;
-		[SerializeField] float m_RunCycleLegOffset = 0.2f; //specific to the character in sample assets, will need to be modified to work with others
-		[SerializeField] float m_MoveSpeedMultiplier = 1f;
+		// [SerializeField] float m_RunCycleLegOffset = 0.2f; //specific to the character in sample assets, will need to be modified to work with others
+		[SerializeField] float m_MoveSpeedMultiplier = 2f;
 		[SerializeField] float m_AnimSpeedMultiplier = 1f;
-		[SerializeField] float m_GroundCheckDistance = 0.1f;
+		[SerializeField] float m_GroundCheckDistance = 0.3f;
 
-		Rigidbody m_Rigidbody;
-		Animator m_Animator;
+		public Rigidbody m_Rigidbody;
+		public Animator m_Animator;
 		public bool m_IsGrounded;
 		public float m_OrigGroundCheckDistance;
 		const float k_Half = 0.5f;
-		float m_TurnAmount;
-		float m_ForwardAmount;
-		Vector3 m_GroundNormal;
+		public float m_TurnAmount;
+		public float m_ForwardAmount;
+		public Vector3 m_GroundNormal;
+        public Vector3 v;
 		float m_CapsuleHeight;
 		Vector3 m_CapsuleCenter;
 		CapsuleCollider m_Capsule;
@@ -49,6 +50,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// convert the world relative moveInput vector into a local-relative
 			// turn amount and forward amount required to head in the desired
 			// direction.
+
+            v = move*m_MoveSpeedMultiplier;
+
 			if (move.magnitude > 1f) 
             {
                 move.Normalize();
@@ -77,6 +81,18 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			// send input and other state parameters to the animator
 			UpdateAnimator(move);
+
+            if (Time.deltaTime > 0)
+			{
+                // print(m_Animator.deltaPosition.ToString());
+				
+                // v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
+                // v *= m_MoveSpeedMultiplier;
+                v.y = m_Rigidbody.velocity.y;
+				// we preserve the existing y part of the current velocity.
+				// v.y = m_Rigidbody.velocity.y;
+				m_Rigidbody.velocity = v;
+			}
 		}
 
 
@@ -137,10 +153,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// calculate which leg is behind, so as to leave that leg trailing in the jump animation
 			// (This code is reliant on the specific run cycle offset in our animations,
 			// and assumes one leg passes the other at the normalized clip times of 0.0 and 0.5)
-			float runCycle =
-				Mathf.Repeat(
-					m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime + m_RunCycleLegOffset, 1);
-			float jumpLeg = (runCycle < k_Half ? 1 : -1) * m_ForwardAmount;
+			// float runCycle =
+			// 	Mathf.Repeat(
+			// 		m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime + m_RunCycleLegOffset, 1);
+			// float jumpLeg = (runCycle < k_Half ? 1 : -1) * m_ForwardAmount;
 			// if (m_IsGrounded)
 			// {
 			// 	m_Animator.SetFloat("JumpLeg", jumpLeg);
@@ -176,9 +192,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			if (jump && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))// && !crouch)
 			{
 				// jump!
-				m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_JumpPower, m_Rigidbody.velocity.z);
+                v.y = m_JumpPower;
+				m_Rigidbody.velocity = v;
 				m_IsGrounded = false;
-				m_Animator.applyRootMotion = false;
+				// m_Animator.applyRootMotion = false;
 				m_GroundCheckDistance = 0.1f;
 			}
 		}
@@ -191,19 +208,20 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		}
 
 
-		public void OnAnimatorMove()
-		{
-			// we implement this function to override the default root motion.
-			// this allows us to modify the positional speed before it's applied.
-			if (m_IsGrounded && Time.deltaTime > 0)
-			{
-				Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
+		// public void OnAnimatorMove()
+		// {
+		// 	// we implement this function to override the default root motion.
+		// 	// this allows us to modify the positional speed before it's applied.
+		// 	if (m_IsGrounded && Time.deltaTime > 0)
+		// 	{
+        //         // print(m_Animator.deltaPosition.ToString());
+		// 		Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
 
-				// we preserve the existing y part of the current velocity.
-				v.y = m_Rigidbody.velocity.y;
-				m_Rigidbody.velocity = v;
-			}
-		}
+		// 		// we preserve the existing y part of the current velocity.
+		// 		v.y = m_Rigidbody.velocity.y;
+		// 		m_Rigidbody.velocity = v;
+		// 	}
+		// }
 
 
 		void CheckGroundStatus()
@@ -220,12 +238,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				m_GroundNormal = hitInfo.normal;
 				m_IsGrounded = true;
 				m_Animator.applyRootMotion = true;
+                
 			}
 			else
 			{
 				m_IsGrounded = false;
 				m_GroundNormal = Vector3.up;
-				m_Animator.applyRootMotion = false;
+				// m_Animator.applyRootMotion = false;
 			}
 		}
 	}

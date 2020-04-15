@@ -16,14 +16,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		[SerializeField] float m_AnimSpeedMultiplier = 1f;
 		[SerializeField] float m_GroundCheckDistance = 0.1f;
 
-		Rigidbody m_Rigidbody;
-		Animator m_Animator;
-		bool m_IsGrounded;
-		float m_OrigGroundCheckDistance;
+		public Rigidbody m_Rigidbody;
+		public Animator m_Animator;
+		public bool m_IsGrounded;
+		public float m_OrigGroundCheckDistance;
 		const float k_Half = 0.5f;
-		float m_TurnAmount;
-		float m_ForwardAmount;
-		Vector3 m_GroundNormal;
+		public float m_TurnAmount;
+		public float m_ForwardAmount;
+		public Vector3 m_GroundNormal;
 		float m_CapsuleHeight;
 		Vector3 m_CapsuleCenter;
 		CapsuleCollider m_Capsule;
@@ -190,6 +190,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// this allows us to modify the positional speed before it's applied.
 			if (m_IsGrounded && Time.deltaTime > 0)
 			{
+				// print(m_Animator.deltaPosition.ToString());
 				Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
 
 				// we preserve the existing y part of the current velocity.

@@ -132,17 +132,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: SweetCat_s10_Catthew
       objectReference: {fileID: 0}
+    - target: {fileID: 1246033310008884, guid: 76635a49180406344b9c7886702c153a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4252791360024596, guid: 76635a49180406344b9c7886702c153a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.845
       objectReference: {fileID: 0}
     - target: {fileID: 4252791360024596, guid: 76635a49180406344b9c7886702c153a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.148
       objectReference: {fileID: 0}
     - target: {fileID: 4252791360024596, guid: 76635a49180406344b9c7886702c153a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.67
       objectReference: {fileID: 0}
     - target: {fileID: 4252791360024596, guid: 76635a49180406344b9c7886702c153a, type: 3}
       propertyPath: m_LocalRotation.x
@@ -175,6 +179,11 @@ PrefabInstance:
     - target: {fileID: 4252791360024596, guid: 76635a49180406344b9c7886702c153a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270433258845645598, guid: 76635a49180406344b9c7886702c153a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76635a49180406344b9c7886702c153a, type: 3}

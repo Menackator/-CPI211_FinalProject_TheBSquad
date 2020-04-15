@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 3921398564981510207}
   - component: {fileID: 8277296972294200380}
   m_Layer: 0
-  m_Name: SweetCat_s10
+  m_Name: SweetCat_s10_Catthew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,14 +207,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MovingTurnSpeed: 360
   m_StationaryTurnSpeed: 180
-  m_JumpPower: 12
+  m_JumpPower: 6
   m_GravityMultiplier: 2
-  m_RunCycleLegOffset: 0.2
-  m_MoveSpeedMultiplier: 1
+  m_MoveSpeedMultiplier: 2
   m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 0.3
+  m_Rigidbody: {fileID: 0}
+  m_Animator: {fileID: 0}
   m_IsGrounded: 0
   m_OrigGroundCheckDistance: 0
+  m_TurnAmount: 0
+  m_ForwardAmount: 0
+  m_GroundNormal: {x: 0, y: 0, z: 0}
+  v: {x: 0, y: 0, z: 0}
 --- !u!114 &3921398564981510207
 MonoBehaviour:
   m_ObjectHideFlags: 0
