@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour
     IEnumerator WaitUntilEndOfStartClip()
     {
         yield return new WaitForSeconds(StartSound.length);
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Level1Mansion");
     }
     public void QuitGame()
     {
