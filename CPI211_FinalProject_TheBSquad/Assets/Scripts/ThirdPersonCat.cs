@@ -9,10 +9,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 	{
 		[SerializeField] float m_MovingTurnSpeed = 360;
 		[SerializeField] float m_StationaryTurnSpeed = 180;
-		[SerializeField] float m_JumpPower = 6f;
-		[Range(1f, 4f)][SerializeField] float m_GravityMultiplier = 2f;
+		[SerializeField] float m_JumpPower = 2f;
+		// [Range(1f, 4f)][SerializeField] float m_GravityMultiplier = 2f;
 		// [SerializeField] float m_RunCycleLegOffset = 0.2f; //specific to the character in sample assets, will need to be modified to work with others
-		[SerializeField] float m_MoveSpeedMultiplier = 2f;
+		[SerializeField] float m_MoveSpeedMultiplier = 1f;
 		[SerializeField] float m_AnimSpeedMultiplier = 1f;
 		[SerializeField] float m_GroundCheckDistance = 0.3f;
 
@@ -25,14 +25,31 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		public float m_ForwardAmount;
 		public Vector3 m_GroundNormal;
         public Vector3 v;
+
+		
 		float m_CapsuleHeight;
 		Vector3 m_CapsuleCenter;
 		CapsuleCollider m_Capsule;
+
+		
+		// public Transform m_Cam;                  // A reference to the main camera in the scenes transform
 		// public bool m_Crouching;
 
 
 		void Start()
 		{
+			// get the transform of the main camera
+            // if (Camera.main != null)
+            // {
+            //     m_Cam = Camera.main.transform;
+            // }
+            // else
+            // {
+            //     Debug.LogWarning(
+            //         "Warning: no main camera found. Third person character needs a Camera tagged \"MainCamera\", for camera-relative controls.", gameObject);
+            //     // we use self-relative controls in this case, which probably isn't what the user wants, but hey, we warned them!
+            // }
+
 			m_Animator = GetComponent<Animator>();
 			m_Rigidbody = GetComponent<Rigidbody>();
 			m_Capsule = GetComponent<CapsuleCollider>();
@@ -44,7 +61,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		}
 
 
-		public void Move(Vector3 move, bool jump)//(Vector3 move, bool crouch, bool jump)
+		public void Move(Vector3 move, bool jump, bool R)//(Vector3 move, bool crouch, bool jump)
 		{
 
 			// convert the world relative moveInput vector into a local-relative
@@ -73,11 +90,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			}
 			else
 			{
-				HandleAirborneMovement();
+				HandleAirborneMovement(jump);
 			}
 
-			// ScaleCapsuleForCrouching(crouch);
-			// PreventStandingInLowHeadroom();
+			
 
 			// send input and other state parameters to the animator
 			UpdateAnimator(move);
@@ -89,53 +105,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 // v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
                 // v *= m_MoveSpeedMultiplier;
                 v.y = m_Rigidbody.velocity.y;
+				// v.x = m_Rigidbody.velocity.x;
 				// we preserve the existing y part of the current velocity.
 				// v.y = m_Rigidbody.velocity.y;
 				m_Rigidbody.velocity = v;
 			}
 		}
-
-
-		// void ScaleCapsuleForCrouching(bool crouch)
-		// {
-		// 	if (m_IsGrounded && crouch)
-		// 	{
-		// 		if (m_Crouching) 
-        //         {
-        //             return;
-        //         }
-		// 		m_Capsule.height = m_Capsule.height / 2f;
-		// 		m_Capsule.center = m_Capsule.center / 2f;
-		// 		m_Crouching = true;
-		// 	}
-		// 	else
-		// 	{
-		// 		Ray crouchRay = new Ray(m_Rigidbody.position + Vector3.up * m_Capsule.radius * k_Half, Vector3.up);
-		// 		float crouchRayLength = m_CapsuleHeight - m_Capsule.radius * k_Half;
-		// 		if (Physics.SphereCast(crouchRay, m_Capsule.radius * k_Half, crouchRayLength, Physics.AllLayers, QueryTriggerInteraction.Ignore))
-		// 		{
-		// 			m_Crouching = true;
-		// 			return;
-		// 		}
-		// 		m_Capsule.height = m_CapsuleHeight;
-		// 		m_Capsule.center = m_CapsuleCenter;
-		// 		m_Crouching = false;
-		// 	}
-		// }
-
-		// void PreventStandingInLowHeadroom()
-		// {
-		// 	// prevent standing up in crouch-only zones
-		// 	if (!m_Crouching)
-		// 	{
-		// 		Ray crouchRay = new Ray(m_Rigidbody.position + Vector3.up * m_Capsule.radius * k_Half, Vector3.up);
-		// 		float crouchRayLength = m_CapsuleHeight - m_Capsule.radius * k_Half;
-		// 		if (Physics.SphereCast(crouchRay, m_Capsule.radius * k_Half, crouchRayLength, Physics.AllLayers, QueryTriggerInteraction.Ignore))
-		// 		{
-		// 			m_Crouching = true;
-		// 		}
-		// 	}
-		// }
 
 
 		void UpdateAnimator(Vector3 move)
@@ -176,12 +151,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		}
 
 
-		void HandleAirborneMovement()
+		void HandleAirborneMovement(bool jump)
 		{
-			// apply extra gravity from multiplier:
-			Vector3 extraGravityForce = (Physics.gravity * m_GravityMultiplier) - Physics.gravity;
-			m_Rigidbody.AddForce(extraGravityForce);
-
 			m_GroundCheckDistance = m_Rigidbody.velocity.y < 0 ? m_OrigGroundCheckDistance : 0.01f;
 		}
 
@@ -204,7 +175,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		{
 			// help the character turn faster (this is in addition to root rotation in the animation)
 			float turnSpeed = Mathf.Lerp(m_StationaryTurnSpeed, m_MovingTurnSpeed, m_ForwardAmount);
-			transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
+			transform.Rotate(0, m_TurnAmount * turnSpeed/2f * Time.deltaTime, 0);
 		}
 
 
