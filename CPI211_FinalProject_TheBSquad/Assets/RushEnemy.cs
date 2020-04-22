@@ -6,7 +6,8 @@ using UnityEngine.AI;
 public class RushEnemy : MonoBehaviour
 {
 
-    public Transform player;
+    public GameObject player;
+    public int health = 1;
     public float maxDistance = 10;
 
     private NavMeshAgent enemy;
@@ -26,21 +27,26 @@ public class RushEnemy : MonoBehaviour
     void Update()
     {
         //calculates distance between player and the enemy. 
-        distance = Vector3.Distance(player.position, enemy.transform.position);
+        distance = Vector3.Distance(player.transform.position, enemy.transform.position);
         
         //if enemy is within distance of player, follow him. If not, stay put. 
         if (distance < maxDistance)
         {
-            enemy.destination = player.position;
+            enemy.destination = player.transform.position;
 
             if(player != null)
             {
-                transform.LookAt(player);
+                transform.LookAt(player.transform);
             }
 
         }
         else {
             enemy.destination = originalPosition;
+        }
+
+        if(health <= 0)
+        {
+            Destroy(this.gameObject);
         }
     }
 

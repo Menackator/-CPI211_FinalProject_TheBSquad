@@ -19,6 +19,7 @@ public class Projectile : MonoBehaviour
         if (player)
         {
             isHit = true;
+            Debug.Log("Shots fired");
             Destroy(this.gameObject);
         }
     }

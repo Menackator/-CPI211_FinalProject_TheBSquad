@@ -5,10 +5,11 @@ using UnityEngine.AI;
 
 public class ProjectileEnemy : MonoBehaviour
 {
-    public Transform player;
+    public GameObject player;
     public GameObject projectile;
+    public int health = 2;
     public float fireRate = 3;
-    public float bulletSpeed = 3; 
+    public float bulletSpeed = 500; 
     public float maxDistance = 10;
 
     private NavMeshAgent enemy;
@@ -34,12 +35,12 @@ public class ProjectileEnemy : MonoBehaviour
     void Update()
     {
         //calculates distance between player and the enemy. 
-        distance = Vector3.Distance(player.position, enemy.transform.position);
+        distance = Vector3.Distance(player.transform.position, enemy.transform.position);
         //fireRate -= Time.deltaTime;
 
         if (player != null && distance <= maxDistance)
         {
-            transform.LookAt(player);
+            transform.LookAt(player.transform);
         }
 
         //if enemy is within distance of player, follow him. If not, stay put. 
@@ -49,7 +50,7 @@ public class ProjectileEnemy : MonoBehaviour
 
             if ((distance > far))       //too far away
             {
-                enemy.destination = player.position;
+                enemy.destination = player.transform.position;
             }
             if((distance <= far) && (distance >= close))    //perfect distance
             {
@@ -57,7 +58,7 @@ public class ProjectileEnemy : MonoBehaviour
             }
             if ((distance < close))     //too close
             {
-                Vector3 dir = transform.position - player.position;
+                Vector3 dir = transform.position - player.transform.position;
                 Vector3 newPos = (transform.position + dir.normalized);
                 enemy.destination = newPos;
             }
@@ -81,6 +82,11 @@ public class ProjectileEnemy : MonoBehaviour
         else
         {
             enemy.destination = originalPosition;
+        }
+
+        if(health <= 0)
+        {
+            Destroy(this.gameObject);
         }
     }
 
