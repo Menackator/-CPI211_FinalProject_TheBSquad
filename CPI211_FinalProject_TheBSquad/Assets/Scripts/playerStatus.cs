@@ -17,7 +17,7 @@ public class PlayerStatus : MonoBehaviour
         playerSounds = GetComponent<AudioSource>();
         playerSounds.clip = CatthewHurt;
         playerSounds.volume = 0.5f;
-        playerSounds.Play();
+        //playerSounds.Play();
     }
 
     private void Update()
