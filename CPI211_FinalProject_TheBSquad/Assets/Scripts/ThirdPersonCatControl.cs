@@ -2,8 +2,6 @@
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-namespace UnityStandardAssets.Characters.ThirdPerson
-{
     [RequireComponent(typeof (ThirdPersonCat))]
     public class ThirdPersonCatControl : MonoBehaviour
     {
@@ -113,4 +111,3 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_Jump = false;
         }
     }
-}

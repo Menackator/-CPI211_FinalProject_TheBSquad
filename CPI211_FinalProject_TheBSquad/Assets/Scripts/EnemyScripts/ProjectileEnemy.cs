@@ -5,9 +5,14 @@ using UnityEngine.AI;
 
 public class ProjectileEnemy : MonoBehaviour
 {
+    public int health = 3;
+    public float damageDelay = 2f;
+    private IEnumerator damageDelayRoutine;
+
     public GameObject player;
     public GameObject projectile;
-    public int health = 2;
+    public bool Aggro = false;
+    
     public float fireRate = 3;
     public float bulletSpeed = 500; 
     public float maxDistance = 10;
@@ -15,7 +20,7 @@ public class ProjectileEnemy : MonoBehaviour
     private NavMeshAgent enemy;
     private Vector3 originalPosition;
     private float distance;
-    private bool isHit;
+    
     private float far;
     private float close;
     private float originalFireRate;
@@ -25,7 +30,6 @@ public class ProjectileEnemy : MonoBehaviour
     {
         enemy = GetComponent<NavMeshAgent>();
         originalPosition = gameObject.transform.localPosition;
-        isHit = false;
         far = (float)(maxDistance * (2.0 / 3.0));
         close = (float)(maxDistance * (1.0 / 3.0));
         originalFireRate = fireRate;
@@ -34,78 +38,84 @@ public class ProjectileEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //calculates distance between player and the enemy. 
-        distance = Vector3.Distance(player.transform.position, enemy.transform.position);
-        //fireRate -= Time.deltaTime;
-
-        if (player != null && distance <= maxDistance)
+        if (Aggro == true)
         {
-            transform.LookAt(player.transform);
-        }
+            //calculates distance between player and the enemy. 
+            distance = Vector3.Distance(player.transform.position, enemy.transform.position);
 
-        //if enemy is within distance of player, follow him. If not, stay put. 
-        if (distance < maxDistance)
-        {
-            fireRate -= Time.deltaTime;
-
-            if ((distance > far))       //too far away
+            if (player != null && distance <= maxDistance)
             {
-                enemy.destination = player.transform.position;
-            }
-            if((distance <= far) && (distance >= close))    //perfect distance
-            {
-                enemy.destination = gameObject.transform.localPosition;
-            }
-            if ((distance < close))     //too close
-            {
-                Vector3 dir = transform.position - player.transform.position;
-                Vector3 newPos = (transform.position + dir.normalized);
-                enemy.destination = newPos;
+                transform.LookAt(player.transform);
             }
 
-            //throw projectile
-            if (fireRate <= 0)
+            //if enemy is within distance of player, follow him. If not, stay put. 
+            if (distance < maxDistance)
             {
-                Vector3 position = transform.position + transform.forward;
-                GameObject bullet = Instantiate(projectile, position, transform.rotation);
-                Rigidbody rb = bullet.GetComponent<Rigidbody>();
-                if (rb != null)
+                fireRate -= Time.deltaTime;
+
+                if ((distance > far))       //too far away
                 {
-                    Debug.Log("FIRE!");
-                    rb.AddForce(transform.forward * bulletSpeed);
-                    Destroy(bullet, 3f);
+                    enemy.destination = player.transform.position;
                 }
-                fireRate = originalFireRate;
+                if((distance <= far) && (distance >= close))    //perfect distance
+                {
+                    enemy.destination = gameObject.transform.localPosition;
+                }
+                if ((distance < close))     //too close
+                {
+                    Vector3 dir = transform.position - player.transform.position;
+                    Vector3 newPos = (transform.position + dir.normalized);
+                    enemy.destination = newPos;
+                }
+
+                //throw projectile
+                if (fireRate <= 0)
+                {
+                    Vector3 position = transform.position + transform.forward/2;
+                    GameObject bullet = Instantiate(projectile, position, transform.rotation);
+                    Rigidbody rb = bullet.GetComponent<Rigidbody>();
+                    if (rb != null || rb == null)
+                    {
+                        Debug.Log("FIRE!");
+                        rb.AddForce(transform.forward * bulletSpeed);
+                        Destroy(bullet, 3f);
+                    }
+                    fireRate = originalFireRate;
+                }
+
+            }
+            else
+            {
+                enemy.destination = originalPosition;
+            }
+        }
+
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<ThirdPersonCatControl>().AttackState == true && Aggro == true && damageDelayRoutine == null)
+        {
+            health--;
+
+            if (health <= 0)
+            {
+                Destroy(this.gameObject);
             }
 
-        }
-        else
-        {
-            enemy.destination = originalPosition;
-        }
-
-        if(health <= 0)
-        {
-            Destroy(this.gameObject);
+            damageDelayRoutine = DamageDelay();
+            StartCoroutine(damageDelayRoutine);
+            
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private IEnumerator DamageDelay()
     {
-        if (player)
-        {
-            isHit = true;
-            Debug.Log("gotcha bitch");
-        }
-    }
+        yield return new WaitForSeconds(damageDelay);
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (player)
-        {
-            isHit = false;
-            Debug.Log("You safe");
-        }
+        damageDelayRoutine = null;
+
+        yield return null;
     }
 
 }
