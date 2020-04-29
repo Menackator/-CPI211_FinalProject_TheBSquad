@@ -20,16 +20,16 @@ public class GameController : MonoBehaviour
     {
         if (gameState == 1)
         {
-            Catthew.GetComponent<PlayerStatus>().canBeHurt = false;
+            Catthew.GetComponent<Player>().canBeHurt = false;
         }
         else if (gameState == 2)
         {
-            Catthew.GetComponent<PlayerStatus>().canBeHurt = true;
+            Catthew.GetComponent<Player>().canBeHurt = true;
             CookCat.GetComponent<CookCat>().Aggro = true;
         }
         else if (gameState == 3)
         {
-            Catthew.GetComponent<PlayerStatus>().canBeHurt = false;
+            Catthew.GetComponent<Player>().canBeHurt = false;
             CookCat.GetComponent<CookCat>().Aggro = false;
         }
         else if (gameState == 4)

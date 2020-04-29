@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: e396c4415f013f140a4c78ef520e8f03
   - enabled: 1
-    path: Assets/Scenes/Level1Mansion.unity
-    guid: e92d91a3820c1674ba3573fc275b6cdf
+    path: Assets/Scenes/Combined_Mansion_Level.unity
+    guid: f78567c830f9547458dbced20427b096
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: ed8bd42d6a78def47a2d43d8ec24ffd4

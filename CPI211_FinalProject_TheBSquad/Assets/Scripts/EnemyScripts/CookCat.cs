@@ -27,6 +27,8 @@ public class CookCat : MonoBehaviour
     private float far;
     private float close;
     private float originalFireRate;
+    public AudioClip CatthewImpact;
+    private AudioSource playerSounds;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +47,7 @@ public class CookCat : MonoBehaviour
             healthPaws[i] = true;
         }
 
+        playerSounds = GetComponent<AudioSource>();
         // UI Elements
         CookCat_Health = GameObject.Find("CookCat_Health");
         CookCat_Health.SetActive(false);
@@ -138,10 +141,13 @@ public class CookCat : MonoBehaviour
         {
             health--;
 
+            playerSounds.clip = CatthewImpact;
+            playerSounds.volume = 0.5f;
+            playerSounds.Play();
+
             if (health <= 0)
             {
                 CookCat_Health.SetActive(false);
-                Destroy(this.gameObject);
             }
 
             damageDelayRoutine = DamageDelay();

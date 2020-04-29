@@ -16,7 +16,7 @@ public class TalkCookCat : ConversationWithImage
         return
             Show() *
             If(() => boolean.ButlerFight == true || boolean.CattomFight == true,
-                SpeakLot("What more do you want? Get out of my kitchen!", "Sounds/sfx_textMeow", 1) *
+                SpeakLot("What more do you want? Get out of my kitchen!", "Sounds/textMeow", 1) *
                 Options(
                     Option("Ok") *
                         Hide() *
@@ -24,7 +24,7 @@ public class TalkCookCat : ConversationWithImage
                 )
             ) *
             If(() => boolean.DungeonFight == true,
-                SpeakLot("What more do you want? Get out of my kitchen!", "Sounds/sfx_textMeow", 1) *
+                SpeakLot("What more do you want? Get out of my kitchen!", "Sounds/textMeow", 1) *
                 Options(
                     Option("Ok") *
                         Hide() *
@@ -32,7 +32,7 @@ public class TalkCookCat : ConversationWithImage
                 )
             ) *
             If(() => boolean.FancyFight == true,
-                SpeakLot("What more do you want? Get out of my kitchen!", "Sounds/sfx_textMeow", 10) *
+                SpeakLot("What more do you want? Get out of my kitchen!", "Sounds/textMeow", 10) *
                 Options(
                     Option("Ok") *
                         Hide() *
@@ -40,7 +40,7 @@ public class TalkCookCat : ConversationWithImage
                 )
             ) *
             If(() => boolean.FancyHint == true,
-                SpeakLot("What more do you want? Get out of my kitchen!", "Sounds/sfx_textMeow", 10) *
+                SpeakLot("What more do you want? Get out of my kitchen!", "Sounds/textMeow", 10) *
                 Options(
                     Option("Ok") *
                         Hide() *
@@ -50,7 +50,7 @@ public class TalkCookCat : ConversationWithImage
             If(() => boolean.CookFight == true,
                 SpeakLot("Fine, ya got me beat. \n " +
                 "All I know is that I found a cigar in the kitchen that sure doesn't belong to me. \n " +
-                "Maybe go check that out? But you can keep looking around here too if it'll help.", "Sounds/sfx_textMeow", 20) *
+                "Maybe go check that out? But you can keep looking around here too if it'll help.", "Sounds/textMeow", 20) *
                 Options(
                     Option("Ok, thanks.") *
                         Hide() *
@@ -59,17 +59,17 @@ public class TalkCookCat : ConversationWithImage
             ) *
             If(() => boolean.PoisonHint == true,
                 SpeakLot("I am the Chef!\n" +
-                "What do you want?", "Sounds/sfx_textMeow", 10) *
+                "What do you want?", "Sounds/textMeow", 10) *
                 Options
                 (
                     Options(
                         Option("You have to admit that the poisoning point all claws at you, Cook Cat.  You were the one who had the most time around the food and must have tampered with it!") *
-                            SpeakLot("Now why would I ever do something like that? You know this job is good, pays well, feeds well.", "Sounds/sfx_textMeow", 19) *
-                            SpeakLot("Why would I ever want to jeopardize my spot in this uppity lil castle? ", "Sounds/sfx_textMeow", 10) *
-                            SpeakLot("I never had anything against your girlfriend anyways, and nothing was gonna change that.", "Sounds/sfx_textMeow", 17) *
+                            SpeakLot("Now why would I ever do something like that? You know this job is good, pays well, feeds well.", "Sounds/textMeow", 19) *
+                            SpeakLot("Why would I ever want to jeopardize my spot in this uppity lil castle? ", "Sounds/textMeow", 10) *
+                            SpeakLot("I never had anything against your girlfriend anyways, and nothing was gonna change that.", "Sounds/textMeow", 17) *
                             Options(
                                 Option("That...I'm still figuring out. \nBut so far all evidence points to you, and I won't stop until I find out why.") *
-                                    SpeakLot("You talk a big game for someone so puny. Keep talking like that and you're gonna get a paw right to the nose.", "Sounds/sfx_textMeow", 20) *
+                                    SpeakLot("You talk a big game for someone so puny. Keep talking like that and you're gonna get a paw right to the nose.", "Sounds/textMeow", 20) *
                                         Options(
                                             Option("Bring it on!") *
                                                 Hide() *
@@ -90,7 +90,7 @@ public class TalkCookCat : ConversationWithImage
                 )
             ) *
             If(() => boolean.Beginning == true,
-                SpeakLot("What kid? Gotta problem?", "Sounds/sfx_textMeow", 5) *
+                SpeakLot("What kid? Gotta problem?", "Sounds/textMeow", 5) *
                 Options(
                     Option("I guess not.") *    
                         Hide() *

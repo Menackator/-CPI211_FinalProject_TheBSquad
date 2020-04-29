@@ -29,6 +29,8 @@
 		float m_CapsuleHeight;
 		Vector3 m_CapsuleCenter;
 		CapsuleCollider m_Capsule;
+		public AudioClip CatthewJump;
+		private AudioSource playerSounds;
 
 		
 		// public Transform m_Cam;                  // A reference to the main camera in the scenes transform
@@ -49,6 +51,7 @@
             //     // we use self-relative controls in this case, which probably isn't what the user wants, but hey, we warned them!
             // }
 
+			playerSounds = GetComponent<AudioSource>();
 			m_Animator = GetComponent<Animator>();
 			m_Rigidbody = GetComponent<Rigidbody>();
 			m_Capsule = GetComponent<CapsuleCollider>();
@@ -122,6 +125,9 @@
 			if (!m_IsGrounded)
 			{
 				m_Animator.SetFloat("Jump", m_Rigidbody.velocity.y);
+				playerSounds.clip = CatthewJump;
+        		playerSounds.volume = 0.5f;
+        		// playerSounds.Play();
 			}
 
 			// calculate which leg is behind, so as to leave that leg trailing in the jump animation
