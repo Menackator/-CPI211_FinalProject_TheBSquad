@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 8277296972294200380}
   - component: {fileID: 6381843979295385617}
   - component: {fileID: 1665968450162036842}
+  - component: {fileID: 6288224147441413152}
   m_Layer: 0
   m_Name: Catthew_SweetCat_s10
   m_TagString: Player
@@ -194,7 +195,7 @@ CapsuleCollider:
   m_Radius: 0.2
   m_Height: 0.4
   m_Direction: 1
-  m_Center: {x: 0, y: 0.2, z: 0}
+  m_Center: {x: 0, y: 0.22, z: 0}
 --- !u!114 &5230798401087376425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +276,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CatthewHurt: {fileID: 8300000, guid: 810e2e098ee89d644b6cc1bbf45b5e57, type: 3}
   Sound2: {fileID: 0}
+  canBeHurt: 0
+  health: 6
+  damageDelay: 2
 --- !u!82 &1665968450162036842
 AudioSource:
   m_ObjectHideFlags: 0
@@ -371,6 +375,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6288224147441413152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246033310008884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f58d120e3c4c5e4e9fe015310c884ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 2
+  CanMove: 1
 --- !u!1 &1249400954032676
 GameObject:
   m_ObjectHideFlags: 0

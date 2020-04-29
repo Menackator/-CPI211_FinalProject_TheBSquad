@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class ProjectileEnemy : MonoBehaviour
 {
-    public int health = 3;
+    public int health = 4;
     public float damageDelay = 2f;
     private IEnumerator damageDelayRoutine;
 
@@ -14,7 +14,7 @@ public class ProjectileEnemy : MonoBehaviour
     public bool Aggro = false;
     
     public float fireRate = 3;
-    public float bulletSpeed = 500; 
+    public float bulletSpeed = 300; 
     public float maxDistance = 10;
 
     private NavMeshAgent enemy;

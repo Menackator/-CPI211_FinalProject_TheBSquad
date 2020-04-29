@@ -50,21 +50,12 @@ public class RushEnemy : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (player)
+        if (other.CompareTag("Player"))
         {
             isHit = true;
             Debug.Log("gotcha bitch");
         }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (player)
-        {
-            isHit = false;
-            Debug.Log("You safe");
-        }
-    }
+    }    
 }

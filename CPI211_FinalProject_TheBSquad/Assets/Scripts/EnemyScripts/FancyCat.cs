@@ -5,62 +5,61 @@ using UnityEngine.AI;
 
 public class FancyCat : MonoBehaviour
 {
-
     public GameObject player;
-    public GameObject rush;         //rush enemy
-    public GameObject projectile;   //projectile enemy
-    public int health = 8;
-    public int maxSpawnRush = 3;
-    public int maxSpawnProjectile = 3;
-    public int spawnDelay = 3;
+    public GameObject projectile;
+    public int health = 6;
+    public float attackDis = 5;
+    public bool canFight = true;
 
-    private NavMeshAgent oliver;    //fancy cat name
-    private Vector3 originalPosition;
-    private int rushCount = 0;
-    private int projectileCount = 0;
-    private bool enemySpawned;
+    private NavMeshAgent benny;
+    private float distance;
+    private bool canMove;
+    private float closeAttack;
+    private int dungPro = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        oliver = GetComponent<NavMeshAgent>();
-        originalPosition = transform.localPosition;
-
-        enemySpawned = false;
+        benny = GetComponent<NavMeshAgent>();
+        canMove = true;
+        closeAttack = attackDis *(.2f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 dir = transform.position - player.transform.position;
-        Vector3 newPos = (transform.position + dir.normalized);
-        oliver.destination = newPos;
-
-        rushCount = GameObject.FindGameObjectsWithTag("Rush").Length;               //number of rush enemies present
-        projectileCount = GameObject.FindGameObjectsWithTag("Projectile").Length;   //number of projectile enemies present
-
-        if (rushCount < maxSpawnRush && !enemySpawned)
+        if (canFight)
         {
-            StartCoroutine(SpawnWait(rush));
-        }
-        if (projectileCount < maxSpawnProjectile && !enemySpawned)
-        {
-            StartCoroutine(SpawnWait(projectile));
+            //calculates distance between player and the enemy. 
+            distance = Vector3.Distance(player.transform.position, benny.transform.position);
+
+            if (canMove)
+            {
+                benny.destination = player.transform.position;
+            }
+
+            if(distance <= attackDis && distance > closeAttack)
+            {
+                canMove = true;
+                ProjectileAttack();
+            }
         }
     }
 
-    private void SpawnEnemy(GameObject enemyType)
+    void ProjectileAttack()
     {
-        Vector3 position = transform.position - transform.forward;
-        GameObject enemy = Instantiate(enemyType, position, transform.rotation);
-        enemySpawned = false;
-    }
-
-    IEnumerator SpawnWait(GameObject enemyType)
-    {
-        enemySpawned = true;
-        yield return new WaitForSeconds(spawnDelay);
-        SpawnEnemy(enemyType);
-        yield return null;
+        Vector3 spawnPos = new Vector3(player.transform.position.x, player.transform.position.y + 10, player.transform.position.z);
+        Vector3 position = player.transform.position + player.transform.up + player.transform.forward;
+        dungPro = GameObject.FindGameObjectsWithTag("Dungeon Projectile").Length;
+        if (dungPro <= 20)
+        {
+            GameObject bullet = Instantiate(projectile, spawnPos, transform.rotation);
+            Rigidbody rb = bullet.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddForce(0, -100, 0);
+            }
+            Destroy(bullet, 3f);
+        }
     }
 }

@@ -16,7 +16,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other == player.GetComponent<Collider>())
+        if (other.CompareTag("Player"))
         {
             isHit = true;
             Debug.Log("Shots fired");
@@ -24,4 +24,3 @@ public class Projectile : MonoBehaviour
         }
     }
 }
-
