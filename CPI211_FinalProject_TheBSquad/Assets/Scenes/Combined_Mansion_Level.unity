@@ -10333,7 +10333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4519780171434568, guid: 07460c6c188b8a04f839f4f826d7618b, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4519780171434568, guid: 07460c6c188b8a04f839f4f826d7618b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10407,6 +10407,12 @@ PrefabInstance:
       propertyPath: Game
       value: 
       objectReference: {fileID: 1361705522}
+    - target: {fileID: 3902974147557606782, guid: 07460c6c188b8a04f839f4f826d7618b,
+        type: 3}
+      propertyPath: CharacterHeadSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b79a6e2953af9fc40a922f20c9875595,
+        type: 3}
     - target: {fileID: 5968373760927975054, guid: 07460c6c188b8a04f839f4f826d7618b,
         type: 3}
       propertyPath: m_Radius
@@ -13189,7 +13195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4648041310574720, guid: e0c159c80a146a34ab94f0cc4cfb8dc4, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4648041310574720, guid: e0c159c80a146a34ab94f0cc4cfb8dc4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -13208,6 +13214,12 @@ PrefabInstance:
       propertyPath: boolean
       value: 
       objectReference: {fileID: 1065781813}
+    - target: {fileID: 1462871632350704111, guid: e0c159c80a146a34ab94f0cc4cfb8dc4,
+        type: 3}
+      propertyPath: CharacterHeadSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d9d51833e2442884c9ecc9ac0becff70,
+        type: 3}
     - target: {fileID: 3485489576795844768, guid: e0c159c80a146a34ab94f0cc4cfb8dc4,
         type: 3}
       propertyPath: TextUI
@@ -13999,7 +14011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4571718217494122, guid: 89cdf75ee60ecc94996fe61c7070bff0, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4571718217494122, guid: 89cdf75ee60ecc94996fe61c7070bff0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -24747,7 +24759,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4473829217447604, guid: a49ac8660343643409ec7dc158f77ba5, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4473829217447604, guid: a49ac8660343643409ec7dc158f77ba5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -24771,6 +24783,12 @@ PrefabInstance:
       propertyPath: boolean
       value: 
       objectReference: {fileID: 1065781813}
+    - target: {fileID: 2717108263186516690, guid: a49ac8660343643409ec7dc158f77ba5,
+        type: 3}
+      propertyPath: CharacterHeadSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8db61ef811b888f4bb4836cf8fe53524,
+        type: 3}
     - target: {fileID: 5208461943374533737, guid: a49ac8660343643409ec7dc158f77ba5,
         type: 3}
       propertyPath: DialogUI
@@ -26672,7 +26690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4252791360024596, guid: 76635a49180406344b9c7886702c153a, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4252791360024596, guid: 76635a49180406344b9c7886702c153a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -35009,6 +35027,12 @@ PrefabInstance:
       propertyPath: boolean
       value: 
       objectReference: {fileID: 1065781813}
+    - target: {fileID: 2326557058458716007, guid: 8597560b1820bbc47b0ab891d100386f,
+        type: 3}
+      propertyPath: CharacterHeadSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7af2f8c54f5badf43b63e210f3dac20e,
+        type: 3}
     - target: {fileID: 2385784303788958389, guid: 8597560b1820bbc47b0ab891d100386f,
         type: 3}
       propertyPath: DialogUI
