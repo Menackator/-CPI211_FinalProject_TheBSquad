@@ -141,8 +141,8 @@ namespace Fluent
 
             if (closestGameAction == null)
                 return;
-
-            ExecuteAction(closestGameAction);
+            else//jordan added this and tabbed the next line
+                ExecuteAction(closestGameAction);
         }
 
     }

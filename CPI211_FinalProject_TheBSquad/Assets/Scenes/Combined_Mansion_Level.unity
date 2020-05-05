@@ -15891,7 +15891,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: asd
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19386,7 +19386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &992760175
 Transform:
   m_ObjectHideFlags: 0
@@ -22651,7 +22651,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -39.23001, y: -18.849976}
+  m_AnchoredPosition: {x: -39.23001, y: -114.5}
   m_SizeDelta: {x: 120.73, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1137829986
@@ -26662,7 +26662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4252791360024596, guid: 76635a49180406344b9c7886702c153a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.66
+      value: 18.693
       objectReference: {fileID: 0}
     - target: {fileID: 4252791360024596, guid: 76635a49180406344b9c7886702c153a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -26704,10 +26704,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1665968450162036842, guid: 76635a49180406344b9c7886702c153a,
+        type: 3}
+      propertyPath: MinDistance
+      value: 0.65035164
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665968450162036842, guid: 76635a49180406344b9c7886702c153a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665968450162036842, guid: 76635a49180406344b9c7886702c153a,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 13.174558
+      objectReference: {fileID: 0}
     - target: {fileID: 3270433258845645598, guid: 76635a49180406344b9c7886702c153a,
         type: 3}
       propertyPath: m_Center.y
       value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270433258845645598, guid: 76635a49180406344b9c7886702c153a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3921398564981510207, guid: 76635a49180406344b9c7886702c153a,
         type: 3}
@@ -26724,6 +26744,11 @@ PrefabInstance:
       propertyPath: AttackStateCooldown
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 3921398564981510207, guid: 76635a49180406344b9c7886702c153a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5230798401087376425, guid: 76635a49180406344b9c7886702c153a,
         type: 3}
       propertyPath: AttackPower
@@ -26734,6 +26759,16 @@ PrefabInstance:
       propertyPath: CatthewJump
       value: 
       objectReference: {fileID: 8300000, guid: ce711d0b2e0c6f648b08a67104a7a541, type: 3}
+    - target: {fileID: 5230798401087376425, guid: 76635a49180406344b9c7886702c153a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381843979295385617, guid: 76635a49180406344b9c7886702c153a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76635a49180406344b9c7886702c153a, type: 3}
 --- !u!1 &1299238428 stripped
@@ -32694,7 +32729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1613147815
 Transform:
   m_ObjectHideFlags: 0
