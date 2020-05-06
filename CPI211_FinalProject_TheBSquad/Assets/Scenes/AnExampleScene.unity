@@ -4746,6 +4746,7 @@ MonoBehaviour:
   CharacterHeadSprite: {fileID: 21300000, guid: 4029ca333df61354c9b5671e0296308b,
     type: 3}
   boolean: {fileID: 817065369}
+  Game: {fileID: 0}
 --- !u!135 &1672431607
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6025,10 +6026,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2082859368}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f58d120e3c4c5e4e9fe015310c884ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 274dcdc704c038742a06f2434f2cda72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 8
+  MoveSpeed: 4
   CanMove: 1
 --- !u!54 &2082859374
 Rigidbody:

@@ -84,7 +84,8 @@ namespace Fluent
                     dialogOptionItem.GetComponentInChildren<Button>().onClick.AddListener(() =>
                     {
                         SelectOption(option);
-                    });
+                    }
+                    );
                 }
                 else
                 {

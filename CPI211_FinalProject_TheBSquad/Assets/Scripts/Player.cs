@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     private IEnumerator damageDelayRoutine;
     private bool[] healthPaws = new bool[6];
 
-    private void Awake()
+    void Awake()//removed private
     {
         Instance = this;
 

@@ -63,7 +63,7 @@ namespace Fluent
 
         public virtual string Description()
         {
-            return "Talk";
+            return "";//removed talk
         }
 
         /// <summary>
