@@ -697,6 +697,7 @@ GameObject:
   - component: {fileID: 95177224294900284}
   - component: {fileID: 669765949164093589}
   - component: {fileID: 2874408087464324573}
+  - component: {fileID: 4630606940926854668}
   m_Layer: 0
   m_Name: FancyCat_SweetCat_s26
   m_TagString: Untagged
@@ -770,6 +771,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4630606940926854668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746870719213196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0409d51d27506498978a8052919223, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  projectile: {fileID: 0}
+  health: 6
+  attackDis: 5
+  Aggro: 0
 --- !u!1 &1787745527370058
 GameObject:
   m_ObjectHideFlags: 0

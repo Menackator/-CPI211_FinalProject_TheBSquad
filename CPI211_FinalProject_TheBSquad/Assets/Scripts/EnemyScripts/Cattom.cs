@@ -21,6 +21,7 @@ public class Cattom : MonoBehaviour
     private int midCount = 0;
     private bool tooFar;
     private bool defAttack;
+    public bool Aggro = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,28 +35,31 @@ public class Cattom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distance = Vector3.Distance(player.transform.position, transform.position);
+        if (Aggro == true)
+        {
+            distance = Vector3.Distance(player.transform.position, transform.position);
 
-        if(distance > midDistance)
-        {
-            cattom.destination = player.transform.position;
-            if (distance < maxDistance)
+            if(distance > midDistance)
             {
-                StartCoroutine(FarAttack());
+                cattom.destination = player.transform.position;
+                if (distance < maxDistance)
+                {
+                    StartCoroutine(FarAttack());
+                }
             }
-        }
-        if(distance <= midDistance && distance >= closeDistance)
-        {
-            cattom.destination = gameObject.transform.localPosition;
-            MidAttack();
-        }
-        if(distance < closeDistance)
-        {
-            Vector3 dir = transform.position - player.transform.position;
-            Vector3 newPos = (transform.position + dir.normalized);
-            cattom.destination = newPos;
-            defAttack = true;
-            StartCoroutine(CloseAttack());
+            if(distance <= midDistance && distance >= closeDistance)
+            {
+                cattom.destination = gameObject.transform.localPosition;
+                MidAttack();
+            }
+            if(distance < closeDistance)
+            {
+                Vector3 dir = transform.position - player.transform.position;
+                Vector3 newPos = (transform.position + dir.normalized);
+                cattom.destination = newPos;
+                defAttack = true;
+                StartCoroutine(CloseAttack());
+            }
         }
     }
 

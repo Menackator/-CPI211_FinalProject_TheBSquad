@@ -9,7 +9,7 @@ public class FancyCat : MonoBehaviour
     public GameObject projectile;
     public int health = 6;
     public float attackDis = 5;
-    public bool canFight = true;
+    public bool Aggro = false;
 
     private NavMeshAgent benny;
     private float distance;
@@ -28,7 +28,7 @@ public class FancyCat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canFight)
+        if (Aggro == true)
         {
             //calculates distance between player and the enemy. 
             distance = Vector3.Distance(player.transform.position, benny.transform.position);

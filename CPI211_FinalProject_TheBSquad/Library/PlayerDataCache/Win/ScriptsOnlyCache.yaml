@@ -2,7 +2,10 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - Booleans
+    - ButlerCat
+    - Cattom
     - CookCat
+    - FancyCat
     - Fluent.FluentManager
     - Fluent.HighlightFix
     - Fluent.OptionsPresenter
@@ -13,9 +16,12 @@ ScriptsOnlyBuild:
     - Projectile
     - TalkButlerCat
     - TalkCattom
+    - TalkCigar
     - TalkCookCat
+    - TalkDiary
     - TalkDungeonCat
     - TalkFancyCat
+    - TalkNote
     - ThirdPersonCat
     - ThirdPersonCatControl
     - UIControl
@@ -104,8 +110,12 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
+    - Class: 111
+      Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11218}
+      Script: {instanceID: 11220}
+    - Class: 114
+      Script: {instanceID: 11258}
     - Class: 114
       Script: {instanceID: 11290}
     - Class: 114
@@ -116,6 +126,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11412}
     - Class: 114
       Script: {instanceID: 11456}
+    - Class: 114
+      Script: {instanceID: 11472}
     - Class: 114
       Script: {instanceID: 11578}
     - Class: 114
@@ -135,6 +147,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12054}
     - Class: 114
+      Script: {instanceID: 12060}
+    - Class: 114
       Script: {instanceID: 12104}
     - Class: 114
       Script: {instanceID: 12152}
@@ -145,39 +159,45 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12278}
     - Class: 114
-      Script: {instanceID: 12344}
+      Script: {instanceID: 12346}
     - Class: 114
-      Script: {instanceID: 12406}
+      Script: {instanceID: 12408}
     - Class: 114
-      Script: {instanceID: 12514}
+      Script: {instanceID: 12516}
     - Class: 114
-      Script: {instanceID: 12638}
+      Script: {instanceID: 12640}
     - Class: 114
-      Script: {instanceID: 12654}
+      Script: {instanceID: 12656}
     - Class: 114
-      Script: {instanceID: 12658}
+      Script: {instanceID: 12660}
     - Class: 114
-      Script: {instanceID: 12890}
+      Script: {instanceID: 12892}
     - Class: 114
-      Script: {instanceID: 12898}
+      Script: {instanceID: 12900}
     - Class: 114
-      Script: {instanceID: 12924}
+      Script: {instanceID: 12926}
     - Class: 114
-      Script: {instanceID: 12976}
+      Script: {instanceID: 12978}
     - Class: 114
-      Script: {instanceID: 13120}
+      Script: {instanceID: 13006}
     - Class: 114
-      Script: {instanceID: 13284}
+      Script: {instanceID: 13124}
     - Class: 114
-      Script: {instanceID: 13328}
+      Script: {instanceID: 13132}
     - Class: 114
-      Script: {instanceID: 13350}
+      Script: {instanceID: 13288}
     - Class: 114
-      Script: {instanceID: 13358}
+      Script: {instanceID: 13332}
     - Class: 114
-      Script: {instanceID: 13396}
+      Script: {instanceID: 13354}
     - Class: 114
-      Script: {instanceID: 13428}
+      Script: {instanceID: 13362}
+    - Class: 114
+      Script: {instanceID: 13400}
+    - Class: 114
+      Script: {instanceID: 13432}
+    - Class: 114
+      Script: {instanceID: 13446}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -188,6 +208,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 137
       Script: {instanceID: 0}
+    - Class: 154
+      Script: {instanceID: 0}
+    - Class: 156
+      Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 195
@@ -195,6 +219,8 @@ ScriptsOnlyBuild:
     - Class: 196
       Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    - Class: 218
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -205,6 +231,8 @@ ScriptsOnlyBuild:
     - Class: 238
       Script: {instanceID: 0}
     - Class: 258
+      Script: {instanceID: 0}
+    - Class: 1953259897
       Script: {instanceID: 0}
     Assets/Scenes/GameOver.unity:
     - Class: 1
@@ -230,7 +258,7 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11218}
+      Script: {instanceID: 11220}
     - Class: 114
       Script: {instanceID: 11408}
     - Class: 114
@@ -238,15 +266,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11906}
     - Class: 114
-      Script: {instanceID: 12406}
+      Script: {instanceID: 12408}
     - Class: 114
-      Script: {instanceID: 12434}
+      Script: {instanceID: 12436}
     - Class: 114
-      Script: {instanceID: 12976}
+      Script: {instanceID: 12978}
     - Class: 114
-      Script: {instanceID: 13364}
+      Script: {instanceID: 13368}
     - Class: 114
-      Script: {instanceID: 13396}
+      Script: {instanceID: 13400}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -297,7 +325,7 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11218}
+      Script: {instanceID: 11220}
     - Class: 114
       Script: {instanceID: 11408}
     - Class: 114
@@ -311,29 +339,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12278}
     - Class: 114
-      Script: {instanceID: 12406}
+      Script: {instanceID: 12408}
     - Class: 114
-      Script: {instanceID: 12434}
+      Script: {instanceID: 12436}
     - Class: 114
-      Script: {instanceID: 12654}
+      Script: {instanceID: 12656}
     - Class: 114
-      Script: {instanceID: 12658}
+      Script: {instanceID: 12660}
     - Class: 114
-      Script: {instanceID: 12672}
+      Script: {instanceID: 12674}
     - Class: 114
-      Script: {instanceID: 12898}
+      Script: {instanceID: 12900}
     - Class: 114
-      Script: {instanceID: 12976}
+      Script: {instanceID: 12978}
     - Class: 114
-      Script: {instanceID: 13164}
+      Script: {instanceID: 13168}
     - Class: 114
-      Script: {instanceID: 13282}
+      Script: {instanceID: 13286}
     - Class: 114
-      Script: {instanceID: 13350}
+      Script: {instanceID: 13354}
     - Class: 114
-      Script: {instanceID: 13364}
+      Script: {instanceID: 13368}
     - Class: 114
-      Script: {instanceID: 13396}
+      Script: {instanceID: 13400}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -857,7 +885,7 @@ ScriptsOnlyBuild:
     className: ThirdPersonCharacter
   - hash:
       serializedVersion: 2
-      Hash: 044da453aa5a14540bfe185f7eea7222
+      Hash: 8a028336327099ac2aae27ec0bc6316f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FancyCat
@@ -1017,6 +1045,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: Fluent
     className: HighlightFix
+  - hash:
+      serializedVersion: 2
+      Hash: c5d68b2178299ba743e8a094f80ce08a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerTest
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1409,7 +1443,7 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: ae46957816cabd90b4e86f740452b409
+      Hash: ddf5af0d78653334c5e4478805539995
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Cattom
@@ -1437,6 +1471,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
     className: VertexShakeB
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerTalk
   - hash:
       serializedVersion: 2
       Hash: 219ec6059796d8951d2adcd8505d0dc2
@@ -1667,7 +1707,7 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
-      Hash: 3c3748a3afe1fb5d47c33555cb4ed5b3
+      Hash: 0a1b14fa29138774b32c3af1b7f5c960
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ButlerCat

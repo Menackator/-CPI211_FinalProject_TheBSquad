@@ -19,6 +19,7 @@ public class ButlerCat : MonoBehaviour
     private int rushCount = 0;
     private int projectileCount = 0;
     private bool enemySpawned;
+    public bool Aggro = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,20 +33,23 @@ public class ButlerCat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 dir = transform.position - player.transform.position;
-        Vector3 newPos = (transform.position + dir.normalized);
-        oliver.destination = newPos;
-
-        rushCount = GameObject.FindGameObjectsWithTag("Rush").Length;               //number of rush enemies present
-        projectileCount = GameObject.FindGameObjectsWithTag("Projectile").Length;   //number of projectile enemies present
-
-        if (rushCount < maxSpawnRush && !enemySpawned)
+        if (Aggro == true)
         {
-            StartCoroutine(SpawnWait(rush));
-        }
-        if (projectileCount < maxSpawnProjectile && !enemySpawned)
-        {
-            StartCoroutine(SpawnWait(projectile));
+            Vector3 dir = transform.position - player.transform.position;
+            Vector3 newPos = (transform.position + dir.normalized);
+            oliver.destination = newPos;
+
+            rushCount = GameObject.FindGameObjectsWithTag("Rush").Length;               //number of rush enemies present
+            projectileCount = GameObject.FindGameObjectsWithTag("Projectile").Length;   //number of projectile enemies present
+
+            if (rushCount < maxSpawnRush && !enemySpawned)
+            {
+                StartCoroutine(SpawnWait(rush));
+            }
+            if (projectileCount < maxSpawnProjectile && !enemySpawned)
+            {
+                StartCoroutine(SpawnWait(projectile));
+            }
         }
     }
 
