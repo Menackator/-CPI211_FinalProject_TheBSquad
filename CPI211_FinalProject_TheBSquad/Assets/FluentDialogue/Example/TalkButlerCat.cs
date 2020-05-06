@@ -22,11 +22,11 @@ public class TalkButlerCat : ConversationWithImage
             ) *
             If(() => boolean.ButlerFight == true,
                 Options(
-                Option("You’ve lost, Butler. Tell me the truth and I’ll spare you your life.") *
+                Option("You've lost, Butler. Tell me the truth and I'll spare you your life.") *
                     SpeakLot("... fine... It was Cattom... he knew your Grandfather wanted to cut him out of the will... he overheard him telling Katherine that the mansion would go to you instead...he killed her to shut her up and enlisted my help... " +
                         "I would have gotten a cut of the profits of selling this stupid mansion if it was for you ruining everything...", "Sounds/textMeow", 20) *
                     Options(
-                        Option("Cattom... no... how could he betray me like this…") *
+                        Option("Cattom... no... how could he betray me like this?") *
                             Pause(1) *
                             Hide() *
                             End()
@@ -39,16 +39,16 @@ public class TalkButlerCat : ConversationWithImage
                     Option("Butler! Stop right there!") *
                         SpeakLot("Ah yes, Catthew, how may I help you today?", "Sounds/textMeow", 10) *
                         Options(
-                            Option("I’ve finally put the pieces together. I know who killed Katherine. It all makes sense.") *
-                                SpeakLot("And whose that? You surely mustn’t mean me.", "Sounds/textMeow", 10) *
+                            Option("I've finally put the pieces together. I know who killed Katherine. It all makes sense.") *
+                                SpeakLot("And whose that? You surely mustnt mean me.", "Sounds/textMeow", 10) *
                                 Options(
-                                    Option("You see, it’s not just the cook cat that would have had access to the food, but also you. " +
-                                    "The catnip you purchased from Dungeon Cat wouldn’t be a lethal dose to anyone else, but you would know" +
+                                    Option("You see, it's not just the cook cat that would have had access to the food, but also you. " +
+                                    "The catnip you purchased from Dungeon Cat wouldn't be a lethal dose to anyone else, but you would know" +
                                     "that Katherines allergy could turn deadly with enough of it digested.  And that note I found must " +
                                     "have been your list of things to buy on your shopping trip for the dinner!!" +
                                     " And the cigar must have been a red herring to get me off your trail.") *
-                                        SpeakLot("Haha! Well sir I guess the jig is up.  Except for one thing...how could I have been at the generator and there to make sure Kattherine ate the food? It could not have possibly been me!! I’ll be leaving now. " +
-                                        " Your “proof” is meaningless.", "Sounds/textMeow", 20) *
+                                        SpeakLot("Haha! Well sir I guess the jig is up.  Except for one thing...how could I have been at the generator and there to make sure Kattherine ate the food? It could not have possibly been me!! I'll be leaving now. " +
+                                        " Your 'proof' is meaningless.", "Sounds/textMeow", 20) *
                                         Options(
                                             Option("Like hell you will!") *
                                                 Do(() => boolean.ButlerFight = true) *

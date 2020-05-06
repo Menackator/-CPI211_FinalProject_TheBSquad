@@ -41,26 +41,26 @@ public class TalkDungeonCat : ConversationWithImage
                 (
                     Options
                     (
-                        Option("Dungeon Cat, I see you’re up to your usual bad behavior.") *
+                        Option("Dungeon Cat, I see you're up to your usual bad behavior.") *
                             SpeakLot("Well... look who it is, Mister holier than thou.  What do you need from me now?", "Sounds/textMeow", 10) *
                             Options
                             (
-                                Option("I’m looking for clues on what happened to Katherine. We both know you never liked her.") *
-                                    SpeakLot("I don’t fraternize with cops, man. We simply have different... moral standings.", "Sounds/textMeow", 10) *
+                                Option("I'm looking for clues on what happened to Katherine. We both know you never liked her.") *
+                                    SpeakLot("I don't fraternize with cops, man. We simply have different... moral standings.", "Sounds/textMeow", 10) *
                                         Options
                                         (
-                                            Option("Exactly why you’re my lead suspect.") *
-                                                SpeakLot("Look, man, me and Kat never got along. In fact, I pretty much hated her. But I’d never kill anyone dude. Lifelong pacifist.", "Sounds/textMeow", 20) *
+                                            Option("Exactly why you're my lead suspect.") *
+                                                SpeakLot("Look, man, me and Kat never got along. In fact, I pretty much hated her. But I'd never kill anyone dude. Lifelong pacifist.", "Sounds/textMeow", 20) *
                                                 Options(
                                                     Option("pacifist hmm.") *
                                                         Do(() => boolean.DungeonFight = true) *
                                                         Do(() => boolean.FancyFight = false) *
-                                                        SpeakLot("You know I’ve been down here rolling in my catnip all day Cattyboy. \n" +
-                                                        "I haven’t even been upstairs much since I knew Katherine is allergic to the stuff.", "Sounds/textMeow", 20) *
+                                                        SpeakLot("You know I've been down here rolling in my catnip all day Cattyboy. \n" +
+                                                        "I haven't even been upstairs much since I knew Katherine is allergic to the stuff.", "Sounds/textMeow", 20) *
                                                         Options(
                                                             Option("But who else would have such a compelling motive?") *
                                                                 SpeakLot("Butler Cat came down here yesterday and took some of my catnip. " +
-                                                                "Paid pretty well too.  Wouldn’t tell me what for though.  Maybe talk to him dude.", "Sounds/textMeow", 20) *
+                                                                "Paid pretty well too.  Wouldn't tell me what for though.  Maybe talk to him dude.", "Sounds/textMeow", 20) *
                                                                 Options(
                                                                     Option("How could I not think of this before?! I must go talk to the Butler immediately!") *
                                                                         Hide() *

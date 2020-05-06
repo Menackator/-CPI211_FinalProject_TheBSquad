@@ -13,7 +13,7 @@ public class TalkCattom : ConversationWithImage
             Show() *
             If(() => boolean.CattomFight == true,
                 Write(0, "...") *
-                Option("I have defeated you Cattom. The police are already on their way. And I recorded everything. What kind of detective doesn’t record their investigations?") *
+                Option("I have defeated you Cattom. The police are already on their way. And I recorded everything. What kind of detective doesn't record their investigations?") *
                     SpeakLot("Rot in hell, Catthew.", "Sounds/textMeow", 5) *
                         Option("You first.") *
                             Pause(1) *
@@ -22,8 +22,8 @@ public class TalkCattom : ConversationWithImage
             ) *
             If(() => boolean.ButlerFight == true,
                 SpeakLot("I see you have learned the truth...", "Sounds/textMeow", 10) *
-                SpeakLot("It’s actually pretty easy to betray someone when everything you thought was yours was going to get ripped away from you.","Sounds/textMeow", 20) *
-                SpeakLot(" It’s not my fault you were Grandpa's favorite!", "Sounds/textMeow", 10) *
+                SpeakLot("It's actually pretty easy to betray someone when everything you thought was yours was going to get ripped away from you.","Sounds/textMeow", 20) *
+                SpeakLot(" It's not my fault you were Grandpa's favorite!", "Sounds/textMeow", 10) *
                     Option("He loved you too. But you... you never cared about this family. I know that now.") *
                         SpeakLot("Yes, and you know too much you weasel.  Which means not only Katherine but now you must die!", "Sounds/textMeow", 10) *
                             Pause(1) *
@@ -123,7 +123,7 @@ public class TalkCattom : ConversationWithImage
                         ) *
 
                     Option("Yes! I think the butler is suspicous!") *
-                        SpeakLot("What? No! The bulter wouldn't hurt a fly.", "Sounds/textMeow", 10) *
+                        SpeakLot("What? No! The butler wouldn't hurt a fly.", "Sounds/textMeow", 10) *
                         Options
                         (
                             Option("Really? He always seems cold to me...") *

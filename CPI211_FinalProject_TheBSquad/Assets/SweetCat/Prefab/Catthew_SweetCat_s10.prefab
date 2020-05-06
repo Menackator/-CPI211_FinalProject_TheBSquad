@@ -1358,7 +1358,6 @@ GameObject:
   - component: {fileID: 1432349018988838782}
   - component: {fileID: 4301116244990526165}
   - component: {fileID: 6227015377890088514}
-  - component: {fileID: 4906074443794978507}
   m_Layer: 0
   m_Name: Talk
   m_TagString: Untagged
@@ -1424,21 +1423,6 @@ MonoBehaviour:
   TextUI: {fileID: 0}
   CharacterPauseSeconds: 0.03
   Button: {fileID: 0}
---- !u!114 &4906074443794978507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8736004653418806751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2729732a32230fa48858ef89a6e776f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CharacterHeadSprite: {fileID: 21300000, guid: 7af2f8c54f5badf43b63e210f3dac20e,
-    type: 3}
-  boolean: {fileID: 0}
 --- !u!1001 &6142275403317724716
 PrefabInstance:
   m_ObjectHideFlags: 0

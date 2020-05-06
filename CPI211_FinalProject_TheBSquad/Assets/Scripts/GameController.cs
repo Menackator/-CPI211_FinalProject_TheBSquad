@@ -18,54 +18,43 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameState == 1)
+        if (gameState == 1) // Beginning
         {
             Catthew.GetComponent<Player>().canBeHurt = false;
         }
-        else if (gameState == 2)
+        else if (gameState == 2) // Poison Hint
         {
             Catthew.GetComponent<Player>().canBeHurt = true;
             CookCat.GetComponent<CookCat>().Aggro = true;
         }
-        else if (gameState == 3)
+        else if (gameState == 3) // Cook Fight
         {
             Catthew.GetComponent<Player>().canBeHurt = false;
             CookCat.GetComponent<CookCat>().Aggro = false;
         }
-        else if (gameState == 4)
+        else if (gameState == 4) // Fancy Hint
         {
             
         }
-        else if (gameState == 5)
+        else if (gameState == 5) // Fancy Fight
         {
             
         }
-        else if (gameState == 6)
+        else if (gameState == 6) // Dungeon Fight
         {
             
         }
-        else if (gameState == 7)
+        else if (gameState == 7) // Butler Fight
         {
             
         }
-        else if (gameState == 8)
+        else if (gameState == 8) // Cattom Fight
         {
             
         }
-        else if (gameState == 9)
+        else if (gameState == 9) // End
         {
-            
-        }
-        else if (gameState == 10)
-        {
-            
-        }
-        else if (gameState == 11)
-        {
-            
-        }
 
-
-
+        }
     }
 }
