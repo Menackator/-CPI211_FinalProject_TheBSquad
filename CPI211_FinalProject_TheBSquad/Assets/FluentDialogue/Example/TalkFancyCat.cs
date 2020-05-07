@@ -8,6 +8,7 @@ using Fluent;
 public class TalkFancyCat : ConversationWithImage
 {
     public Booleans boolean;
+    public GameController Game;
 
     public override FluentNode Create()
     {
@@ -75,12 +76,14 @@ public class TalkFancyCat : ConversationWithImage
                                             Do(() => boolean.FancyFight = true) *
                                             Do(() => boolean.FancyHint = false) *
                                             Option("Well sir, if it means getting closer to the truth I’ll fight even you.") *
+                                                Do(() => Game.gameState = 4) *
                                                 Hide() *
                                                 End() *
-                                            Option("We must not be irrational… I just need to get closer to the truth.  Is there anything you’ve seen?") *
+                                            Option("We must not be irrational… I just need to get closer to the truth. Is there anything you’ve seen?") *
                                                 SpeakLot("Well...I don’t know if it can help, but I heard strange noises coming from downstairs last night. " +
                                                     "It could have been the generator, it’s been acting up, but I also know Dungeon Cat likes to lurk down there doing whatever he does. " +
                                                     "And he might actually have a motive to commit such a dastardly crime.", "Sounds/textMeow", 20) *
+                                                Do(() => Game.gameState = 5) *
                                                 Pause(1) *
                                                 Hide() *
                                                 End()

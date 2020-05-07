@@ -5,14 +5,14 @@ using Fluent;
 
 public class Booleans : MonoBehaviour
 {
-    public bool Beginning;
-    public bool PoisonHint;
-    public bool CookFight;
-    public bool FancyHint;
-    public bool FancyFight;
-    public bool DungeonFight;
-    public bool ButlerFight;
-    public bool CattomFight;
+    public bool Beginning;      // GameState = 1
+    public bool PoisonHint;     // GameState = 1
+    public bool CookFight;      // GameState = 3
+    public bool FancyHint;      // GameState = 3
+    public bool FancyFight;     // GameState = 5
+    public bool DungeonFight;   // GameState = 5
+    public bool ButlerFight;    // GameState = 7
+    public bool CattomFight;    // GameState = 9
 
     void Start()
     {

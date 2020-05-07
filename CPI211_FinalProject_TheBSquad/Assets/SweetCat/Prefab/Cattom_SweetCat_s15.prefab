@@ -74,9 +74,10 @@ GameObject:
   - component: {fileID: 7148150192894891811}
   - component: {fileID: 6482356762467044301}
   - component: {fileID: 5958175124234300714}
+  - component: {fileID: 1530502831800325006}
   m_Layer: 0
   m_Name: Cattom_SweetCat_s15
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,6 +168,28 @@ MonoBehaviour:
   fireRate: 3
   bulletSpeed: 100
   Aggro: 0
+--- !u!195 &1530502831800325006
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018919232652928}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.2
+  m_Speed: 1
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: -0.02
+  m_WalkableMask: 5
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1035908572414460
 GameObject:
   m_ObjectHideFlags: 0

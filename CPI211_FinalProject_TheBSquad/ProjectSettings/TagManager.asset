@@ -8,6 +8,9 @@ TagManager:
   - PowerUpColor
   - Enemy
   - Boss
+  - Projectile
+  - Rush
+  - Dungeon Projectile
   layers:
   - Default
   - TransparentFX

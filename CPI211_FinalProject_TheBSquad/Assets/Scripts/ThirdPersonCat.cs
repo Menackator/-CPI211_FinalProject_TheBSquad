@@ -88,6 +88,7 @@
 			// control and velocity handling is different when grounded and airborne:
 			if (m_IsGrounded)
 			{
+				
 				HandleGroundedMovement(jump);//(crouch, jump);
 			}
 			else
@@ -125,9 +126,7 @@
 			if (!m_IsGrounded)
 			{
 				m_Animator.SetFloat("Jump", m_Rigidbody.velocity.y);
-				playerSounds.clip = CatthewJump;
-        		playerSounds.volume = 0.5f;
-        		// playerSounds.Play();
+				
 			}
 
 			// calculate which leg is behind, so as to leave that leg trailing in the jump animation
@@ -167,6 +166,9 @@
 			// check whether conditions are right to allow a jump:
 			if (jump && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))// && !crouch)
 			{
+				playerSounds.clip = CatthewJump;
+        		playerSounds.Play();
+				
 				// jump!
                 v.y = m_JumpPower;
 				m_Rigidbody.velocity = v;

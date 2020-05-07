@@ -5,15 +5,15 @@ using UnityEngine.AI;
 
 public class CookCat : MonoBehaviour
 {
-    public int health = 4;
+    public int health = 3;
     private int prevHealth;
-    private bool[] healthPaws = new bool[4];
+    private bool[] healthPaws = new bool[3];
     public float damageDelay = 2f;
     private IEnumerator damageDelayRoutine;
 
     public GameObject player;
     public GameObject projectile;
-    private GameObject CookCat_Health;
+    private GameObject Cat_Health;
     public bool Aggro = false;
     
     public float fireRate = 3;
@@ -23,11 +23,12 @@ public class CookCat : MonoBehaviour
     private NavMeshAgent enemy;
     private Vector3 originalPosition;
     private float distance;
-    
+    private Vector3 idlePosition;
+    private Quaternion idleRotation;
     private float far;
     private float close;
     private float originalFireRate;
-    public AudioClip CatthewImpact;
+    public AudioClip Cat_Hurt;
     private AudioSource playerSounds;
 
     // Start is called before the first frame update
@@ -46,11 +47,14 @@ public class CookCat : MonoBehaviour
         {
             healthPaws[i] = true;
         }
-
         playerSounds = GetComponent<AudioSource>();
+
+        idlePosition = gameObject.transform.position;
+        idleRotation = gameObject.transform.rotation;
+
         // UI Elements
-        CookCat_Health = GameObject.Find("CookCat_Health");
-        CookCat_Health.SetActive(false);
+        Cat_Health = GameObject.Find("CookCat_Health");
+        Cat_Health.SetActive(false);
     }
 
     // Update is called once per frame
@@ -58,9 +62,9 @@ public class CookCat : MonoBehaviour
     {
         if (Aggro == true)
         {
-            if (CookCat_Health.activeInHierarchy == false)
+            if (Cat_Health.activeInHierarchy == false)
             {
-                CookCat_Health.SetActive(true);
+                Cat_Health.SetActive(true);
             }
 
             // Updates the health paws in the UI
@@ -77,7 +81,7 @@ public class CookCat : MonoBehaviour
                     {
                         healthPaws[i] = false;
                     }
-                    CookCat_Health.transform.GetChild(i).gameObject.active = healthPaws[i];
+                    Cat_Health.transform.GetChild(i).gameObject.active = healthPaws[i];
                     counter++;
                 }
                 prevHealth = health;
@@ -132,7 +136,16 @@ public class CookCat : MonoBehaviour
                 enemy.destination = originalPosition;
             }
         }
+        else
+        {
+            gameObject.transform.position = idlePosition;
+            gameObject.transform.rotation = idleRotation;
 
+            if (Cat_Health.activeInHierarchy == true)
+            {
+                Cat_Health.SetActive(false);
+            }
+        }
     }
 
     private void OnCollisionStay(Collision collision)
@@ -141,13 +154,13 @@ public class CookCat : MonoBehaviour
         {
             health--;
 
-            playerSounds.clip = CatthewImpact;
-            playerSounds.volume = 0.5f;
+            playerSounds.clip = Cat_Hurt;
             playerSounds.Play();
 
             if (health <= 0)
             {
-                CookCat_Health.SetActive(false);
+                Cat_Health.SetActive(false);
+                GameObject.Find("GameController").GetComponent<GameController>().gameState = 3;
             }
 
             damageDelayRoutine = DamageDelay();

@@ -13,7 +13,7 @@ public class TalkButlerCat : ConversationWithImage
         return
             Show() *
             If(() => boolean.CattomFight == true,
-                SpeakLot("I see you have solved the mystery.", "Sounds/textMeow", 5) *
+                SpeakLot("I see you have solved the mystery.", "Sounds/sfx_butlerCatSpeak1", 5) *
                 Options(
                         Option("Yes. And you are so fired.") *
                             Hide() *
@@ -24,7 +24,7 @@ public class TalkButlerCat : ConversationWithImage
                 Options(
                 Option("You've lost, Butler. Tell me the truth and I'll spare you your life.") *
                     SpeakLot("... fine... It was Cattom... he knew your Grandfather wanted to cut him out of the will... he overheard him telling Katherine that the mansion would go to you instead...he killed her to shut her up and enlisted my help... " +
-                        "I would have gotten a cut of the profits of selling this stupid mansion if it was for you ruining everything...", "Sounds/textMeow", 20) *
+                        "I would have gotten a cut of the profits of selling this stupid mansion if it was for you ruining everything...", "Sounds/sfx_butlerCatSpeak1", 20) *
                     Options(
                         Option("Cattom... no... how could he betray me like this?") *
                             Pause(1) *
@@ -34,13 +34,13 @@ public class TalkButlerCat : ConversationWithImage
                 )
             ) *
             If(() => boolean.DungeonFight == true,
-                SpeakLot("Hm?", "Sounds/textMeow", 1) *
+                SpeakLot("Hm?", "Sounds/sfx_butlerCatSpeak1", 1) *
                 Options(
                     Option("Butler! Stop right there!") *
-                        SpeakLot("Ah yes, Catthew, how may I help you today?", "Sounds/textMeow", 10) *
+                        SpeakLot("Ah yes, Catthew, how may I help you today?", "Sounds/sfx_butlerCatSpeak1", 10) *
                         Options(
                             Option("I've finally put the pieces together. I know who killed Katherine. It all makes sense.") *
-                                SpeakLot("And whose that? You surely mustnt mean me.", "Sounds/textMeow", 10) *
+                                SpeakLot("And whose that? You surely mustnt mean me.", "Sounds/sfx_butlerCatSpeak1", 10) *
                                 Options(
                                     Option("You see, it's not just the cook cat that would have had access to the food, but also you. " +
                                     "The catnip you purchased from Dungeon Cat wouldn't be a lethal dose to anyone else, but you would know" +
@@ -48,7 +48,7 @@ public class TalkButlerCat : ConversationWithImage
                                     "have been your list of things to buy on your shopping trip for the dinner!!" +
                                     " And the cigar must have been a red herring to get me off your trail.") *
                                         SpeakLot("Haha! Well sir I guess the jig is up.  Except for one thing...how could I have been at the generator and there to make sure Kattherine ate the food? It could not have possibly been me!! I'll be leaving now. " +
-                                        " Your 'proof' is meaningless.", "Sounds/textMeow", 20) *
+                                        " Your 'proof' is meaningless.", "Sounds/sfx_butlerCatSpeak1", 20) *
                                         Options(
                                             Option("Like hell you will!") *
                                                 Do(() => boolean.ButlerFight = true) *
@@ -64,7 +64,7 @@ public class TalkButlerCat : ConversationWithImage
                 )
             ) *
             If(() => boolean.FancyFight == true,
-                SpeakLot("Do you need anything, sir?", "Sounds/textMeow", 10) *
+                SpeakLot("Do you need anything, sir?", "Sounds/sfx_butlerCatSpeak1", 10) *
                 Options(
                     Option("No thank you.") *
                         Hide() *
@@ -72,7 +72,7 @@ public class TalkButlerCat : ConversationWithImage
                 )
             ) *
             If(() => boolean.FancyHint == true,
-                SpeakLot("Have you found the killer yet?", "Sounds/textMeow", 10) *
+                SpeakLot("Have you found the killer yet?", "Sounds/sfx_butlerCatSpeak1", 10) *
                 Options(
                     Option("No, but I'm getting close...") *
                         Hide() *
@@ -80,13 +80,13 @@ public class TalkButlerCat : ConversationWithImage
                 )
             ) *
             If(() => boolean.CookFight == true,
-                SpeakLot("So you fought the cook?", "Sounds/textMeow", 10) *
+                SpeakLot("So you fought the cook?", "Sounds/sfx_butlerCatSpeak1", 10) *
                 Options(
                     Option("Yep") *
-                        SpeakLot("And did you learn anything, sir?", "Sounds/textMeow", 10) *
+                        SpeakLot("And did you learn anything, sir?", "Sounds/sfx_butlerCatSpeak1", 10) *
                         Options(
                             Option("Not really...") *
-                            SpeakLot("Perhaps you should wait for the real police to arrive?", "Sounds/textMeow", 10) *
+                            SpeakLot("Perhaps you should wait for the real police to arrive?", "Sounds/sfx_butlerCatSpeak1", 10) *
                             Options(
                                 Option("No! I'm going to investigate the kitchen!") *
                                     Hide() *
@@ -98,12 +98,12 @@ public class TalkButlerCat : ConversationWithImage
             If(() => boolean.PoisonHint == true,
                 Options
                 (
-                    SpeakLot( "Hello sir.", "Sounds/textMeow", 2) *
+                    SpeakLot( "Hello sir.", "Sounds/sfx_butlerCatSpeak1", 2) *
                     Option("Who are you again?") *
-                        SpeakLot("I'm Butler Cat.", "Sounds/textMeow", 5) *
+                        SpeakLot("I'm Butler Cat.", "Sounds/sfx_butlerCatSpeak1", 5) *
                         Options(
                             Option("How do you know Cattom?") *
-                                SpeakLot("Your brother would come help out at the mansion often.", "Sounds/textMeow", 10) *
+                                SpeakLot("Your brother would come help out at the mansion often.", "Sounds/sfx_butlerCatSpeak1", 10) *
 
                             Option("Bye") *
                                 Hide() *
@@ -115,7 +115,7 @@ public class TalkButlerCat : ConversationWithImage
                  )
             ) *
             If(() => boolean.Beginning == true,
-                SpeakLot("Can I help you?", "Sounds/textMeow", 5) *
+                SpeakLot("Can I help you?", "Sounds/sfx_butlerCatSpeak1", 5) *
                 Options(
                     Option("Not yet") *
                         Hide() *

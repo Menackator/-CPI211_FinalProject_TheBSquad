@@ -12,7 +12,7 @@ public class TalkDungeonCat : ConversationWithImage
         return
             Show() *
             If(() => boolean.CattomFight == true,
-                SpeakLot("I'm glad you got'em dude. But when the cops come please leave me out of it.", "Sounds/textMeow", 10) *
+                SpeakLot("I'm glad you got'em dude. But when the cops come please leave me out of it.", "Sounds/sfx_dungeonCatSpeak1", 10) *
                 Options(
                     Option("Ok...") *
                         Hide() *
@@ -20,7 +20,7 @@ public class TalkDungeonCat : ConversationWithImage
                 )
             ) *
             If(() => boolean.ButlerFight == true,
-                SpeakLot("Yikes, you look haunted.", "Sounds/textMeow", 10) *
+                SpeakLot("Yikes, you look haunted.", "Sounds/sfx_dungeonCatSpeak1", 10) *
                 Options(
                     Option("I am...") *
                         Hide() *
@@ -28,7 +28,7 @@ public class TalkDungeonCat : ConversationWithImage
                 )
             ) *
             If(() => boolean.DungeonFight == true,
-                SpeakLot("Look, I'm sorry about Katherine. I hope you find the murderer dude.", "Sounds/textMeow", 10) *
+                SpeakLot("Look, I'm sorry about Katherine. I hope you find the murderer dude.", "Sounds/sfx_dungeonCatSpeak1", 10) *
                 Options(
                     Option("Thanks") *
                         Hide() *
@@ -36,31 +36,31 @@ public class TalkDungeonCat : ConversationWithImage
                 )
             ) *
             If(() => boolean.FancyFight == true,
-                SpeakLot("What do you want?", "Sounds/textMeow", 10) *
+                SpeakLot("What do you want?", "Sounds/sfx_dungeonCatSpeak1", 10) *
                 Options
                 (
                     Options
                     (
                         Option("Dungeon Cat, I see you're up to your usual bad behavior.") *
-                            SpeakLot("Well... look who it is, Mister holier than thou.  What do you need from me now?", "Sounds/textMeow", 10) *
+                            SpeakLot("Well... look who it is, Mister holier than thou.  What do you need from me now?", "Sounds/sfx_dungeonCatSpeak1", 10) *
                             Options
                             (
                                 Option("I'm looking for clues on what happened to Katherine. We both know you never liked her.") *
-                                    SpeakLot("I don't fraternize with cops, man. We simply have different... moral standings.", "Sounds/textMeow", 10) *
+                                    SpeakLot("I don't fraternize with cops, man. We simply have different... moral standings.", "Sounds/sfx_dungeonCatSpeak1", 10) *
                                         Options
                                         (
                                             Option("Exactly why you're my lead suspect.") *
-                                                SpeakLot("Look, man, me and Kat never got along. In fact, I pretty much hated her. But I'd never kill anyone dude. Lifelong pacifist.", "Sounds/textMeow", 20) *
+                                                SpeakLot("Look, man, me and Kat never got along. In fact, I pretty much hated her. But I'd never kill anyone dude. Lifelong pacifist.", "Sounds/sfx_dungeonCatSpeak1", 20) *
                                                 Options(
                                                     Option("pacifist hmm.") *
                                                         Do(() => boolean.DungeonFight = true) *
                                                         Do(() => boolean.FancyFight = false) *
                                                         SpeakLot("You know I've been down here rolling in my catnip all day Cattyboy. \n" +
-                                                        "I haven't even been upstairs much since I knew Katherine is allergic to the stuff.", "Sounds/textMeow", 20) *
+                                                        "I haven't even been upstairs much since I knew Katherine is allergic to the stuff.", "Sounds/sfx_dungeonCatSpeak1", 20) *
                                                         Options(
                                                             Option("But who else would have such a compelling motive?") *
                                                                 SpeakLot("Butler Cat came down here yesterday and took some of my catnip. " +
-                                                                "Paid pretty well too.  Wouldn't tell me what for though.  Maybe talk to him dude.", "Sounds/textMeow", 20) *
+                                                                "Paid pretty well too.  Wouldn't tell me what for though.  Maybe talk to him dude.", "Sounds/sfx_dungeonCatSpeak1", 20) *
                                                                 Options(
                                                                     Option("How could I not think of this before?! I must go talk to the Butler immediately!") *
                                                                         Hide() *
@@ -78,7 +78,7 @@ public class TalkDungeonCat : ConversationWithImage
                 )
             ) *
             If(() => boolean.FancyHint == true,
-                SpeakLot("Why are you down here? Go away!", "Sounds/textMeow", 5) *
+                SpeakLot("Why are you down here? Go away!", "Sounds/sfx_dungeonCatSpeak1", 5) *
                 Options(
                     Option("Ok") *
                         Hide() *
@@ -86,7 +86,7 @@ public class TalkDungeonCat : ConversationWithImage
                 )
             ) *
             If(() => boolean.CookFight == true,
-                SpeakLot("Why are you down here? Go away!", "Sounds/textMeow", 5) *
+                SpeakLot("Why are you down here? Go away!", "Sounds/sfx_dungeonCatSpeak1", 5) *
                 Options(
                     Option("Ok") *
                         Hide() *
@@ -94,7 +94,7 @@ public class TalkDungeonCat : ConversationWithImage
                 )
             ) *
             If(() => boolean.PoisonHint == true,
-                SpeakLot("Why are you down here? Go away!", "Sounds/textMeow", 5) *
+                SpeakLot("Why are you down here? Go away!", "Sounds/sfx_dungeonCatSpeak1", 5) *
                 Options(
                     Option("Ok") *
                         Hide() *
@@ -102,7 +102,7 @@ public class TalkDungeonCat : ConversationWithImage
                 )
             ) *
             If(() => boolean.Beginning == true,
-                SpeakLot("Why are you down here? Go away!", "Sounds/textMeow", 5) *
+                SpeakLot("Why are you down here? Go away!", "Sounds/sfx_dungeonCatSpeak1", 5) *
                 Options(
                     Option("Ok") *
                         Hide() *

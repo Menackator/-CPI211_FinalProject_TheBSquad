@@ -9,7 +9,7 @@ public class ButlerCat : MonoBehaviour
     public GameObject player;
     public GameObject rush;         //rush enemy
     public GameObject projectile;   //projectile enemy
-    public int health = 8;
+    public int health = 5;
     public int maxSpawnRush = 3;
     public int maxSpawnProjectile = 3;
     public int spawnDelay = 3;

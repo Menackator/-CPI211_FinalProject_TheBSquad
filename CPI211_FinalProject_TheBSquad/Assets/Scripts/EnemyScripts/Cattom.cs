@@ -9,7 +9,7 @@ public class Cattom : MonoBehaviour
     public GameObject player;
     public GameObject projectile;
     public GameObject defProjectile;
-    public int health = 10;
+    public int health = 6;
     public float maxDistance = 10;
     public float fireRate = 3;
     public float bulletSpeed = 100;
@@ -98,7 +98,7 @@ public class Cattom : MonoBehaviour
     {
         Vector3 spawnPos = new Vector3(player.transform.position.x, player.transform.position.y + 5, player.transform.position.z);
         Vector3 position = player.transform.position + player.transform.up + player.transform.forward;
-        midCount = GameObject.FindGameObjectsWithTag("Dungeon Projectile").Length;
+        midCount = GameObject.FindGameObjectsWithTag("Projectile").Length;
         if (midCount <= 10)
         {
             GameObject bullet = Instantiate(defProjectile, spawnPos, transform.rotation);

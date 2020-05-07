@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
             health--;
 
             playerSounds.clip = CatthewHurt;
-            playerSounds.volume = 0.5f;
+            // playerSounds.volume = 0.5f;
             playerSounds.Play();
 
             if (health <= 0)

@@ -14,18 +14,18 @@ public class TalkCattom : ConversationWithImage
             If(() => boolean.CattomFight == true,
                 Write(0, "...") *
                 Option("I have defeated you Cattom. The police are already on their way. And I recorded everything. What kind of detective doesn't record their investigations?") *
-                    SpeakLot("Rot in hell, Catthew.", "Sounds/textMeow", 5) *
+                    SpeakLot("Rot in hell, Catthew.", "Sounds/sfx_cattomSpeak1", 5) *
                         Option("You first.") *
                             Pause(1) *
                             Hide() *
                             End()
             ) *
             If(() => boolean.ButlerFight == true,
-                SpeakLot("I see you have learned the truth...", "Sounds/textMeow", 10) *
-                SpeakLot("It's actually pretty easy to betray someone when everything you thought was yours was going to get ripped away from you.","Sounds/textMeow", 20) *
-                SpeakLot(" It's not my fault you were Grandpa's favorite!", "Sounds/textMeow", 10) *
+                SpeakLot("I see you have learned the truth...", "Sounds/sfx_cattomSpeak1", 10) *
+                SpeakLot("It's actually pretty easy to betray someone when everything you thought was yours was going to get ripped away from you.","Sounds/sfx_cattomSpeak1", 20) *
+                SpeakLot(" It's not my fault you were Grandpa's favorite!", "Sounds/sfx_cattomSpeak1", 10) *
                     Option("He loved you too. But you... you never cared about this family. I know that now.") *
-                        SpeakLot("Yes, and you know too much you weasel.  Which means not only Katherine but now you must die!", "Sounds/textMeow", 10) *
+                        SpeakLot("Yes, and you know too much you weasel.  Which means not only Katherine but now you must die!", "Sounds/sfx_cattomSpeak1", 10) *
                             Pause(1) *
                             Do(() => boolean.CattomFight = true) *
                             Do(() => boolean.ButlerFight = false) *
@@ -33,7 +33,7 @@ public class TalkCattom : ConversationWithImage
                             End()
             ) *
             If(() => boolean.DungeonFight == true,
-                SpeakLot("Who could it be... perhaps you missed something?", "Sounds/textMeow", 10) *
+                SpeakLot("Who could it be... perhaps you missed something?", "Sounds/sfx_cattomSpeak1", 10) *
                 Options(
                     Option("Perhaps...") *
                         Hide() *
@@ -41,7 +41,7 @@ public class TalkCattom : ConversationWithImage
                 )
             ) *
             If(() => boolean.FancyFight == true,
-                SpeakLot("So, it wasn't Fancy Cat either? It must be Dungeon Cat then.", "Sounds/textMeow", 10) *
+                SpeakLot("So, it wasn't Fancy Cat either? It must be Dungeon Cat then.", "Sounds/sfx_cattomSpeak1", 10) *
                 Options(
                     Option("I'm going to interview him now.") *
                         Hide() *
@@ -49,10 +49,10 @@ public class TalkCattom : ConversationWithImage
                 )
             ) *
             If(() => boolean.FancyHint == true,
-                SpeakLot("What can I help with brother?", "Sounds/textMeow", 10) *
+                SpeakLot("What can I help with brother?", "Sounds/sfx_cattomSpeak1", 10) *
                 Options(
                     Option("I think the killer may be Fancy Cat!") *
-                        SpeakLot("Really? How terrible. It is true I'm not sure why he was invited. Maybe he came only to murder her...", "Sounds/textMeow", 10) *
+                        SpeakLot("Really? How terrible. It is true I'm not sure why he was invited. Maybe he came only to murder her...", "Sounds/sfx_cattomSpeak1", 10) *
                             Option("I'm going to confront him right now!") *
                                 Hide() *
                                 End()
@@ -61,13 +61,13 @@ public class TalkCattom : ConversationWithImage
             If(() => boolean.CookFight == true,
                 Options
                 (
-                    SpeakLot("I heard you fought the cook. I'm glad you have found the culprit.", "Sounds/textMeow", 10) *
+                    SpeakLot("I heard you fought the cook. I'm glad you have found the culprit.", "Sounds/sfx_cattomSpeak1", 10) *
                     Option("Actually, I don't think it was the chef.") *
-                        SpeakLot("What? Who else could it have been?", "Sounds/textMeow", 10) *
+                        SpeakLot("What? Who else could it have been?", "Sounds/sfx_cattomSpeak1", 10) *
                         Options
                         (
                             Option("Fancy Cat?") *
-                                SpeakLot("Are you sure? Wow, I mean, maybe...", "Sounds/textMeow", 10) *
+                                SpeakLot("Are you sure? Wow, I mean, maybe...", "Sounds/sfx_cattomSpeak1", 10) *
                                 Options
                                 (
                                     Option("I'm going to look for evidence!") *
@@ -78,7 +78,7 @@ public class TalkCattom : ConversationWithImage
                                 ) *
 
                             Option("Butler Cat?") *
-                                SpeakLot("No, trust me, there's no way it could have been Butler Cat.", "Sounds/textMeow", 10) *
+                                SpeakLot("No, trust me, there's no way it could have been Butler Cat.", "Sounds/sfx_cattomSpeak1", 10) *
 
                             Option("I don't know yet.") *
                                 Hide() *
@@ -87,7 +87,7 @@ public class TalkCattom : ConversationWithImage
                 )
             ) *
             If(() => boolean.PoisonHint == true,
-                SpeakLot("Are you going to confront the chef about the poison?", "Sounds/textMeow", 10) *
+                SpeakLot("Are you going to confront the chef about the poison?", "Sounds/sfx_cattomSpeak1", 10) *
                 Options(
                     Option("Yes!") *
                         Hide() *
@@ -95,39 +95,39 @@ public class TalkCattom : ConversationWithImage
                 )
             ) *
             If(() => boolean.Beginning == true,
-                SpeakLot("Hi, brother. I'm sorry about your girlfriend, have you found any clues?", "Sounds/textMeow", 10) *
+                SpeakLot("Hi, brother. I'm sorry about your girlfriend, have you found any clues?", "Sounds/sfx_cattomSpeak1", 10) *
                 Options
                 (
                     Option("No, not yet") *
-                        SpeakLot("How about asking the cook? Wasn't he in charge of the meals?", "Sounds/textMeow", 10) *
+                        SpeakLot("How about asking the cook? Wasn't he in charge of the meals?", "Sounds/sfx_cattomSpeak1", 10) *
                         Options
                         (
                             Option("Really! Then he could have put in the poison!") *
-                                SpeakLot("Yes! And he also didn't like Kathrine very much...", "Sounds/textMeow", 10) *
+                                SpeakLot("Yes! And he also didn't like Kathrine very much...", "Sounds/sfx_cattomSpeak1", 10) *
                                 Options
                                 (
                                     Do(() => boolean.PoisonHint = true) *
                                     Do(() => boolean.Beginning = false) *
                                     Option("I didn't know that! I'll go talk to him right now!") *
-                                        SpeakLot("Ok, be careful...", "Sounds/textMeow", 10) *
+                                        SpeakLot("Ok, be careful...", "Sounds/sfx_cattomSpeak1", 10) *
                                         Pause(1) *
                                         Hide() *
                                         End()
                                 ) *
 
                             Option("Why does that matter?") *
-                                SpeakLot("He could have put the poison in her drink!", "Sounds/textMeow", 10) *
+                                SpeakLot("He could have put the poison in her drink!", "Sounds/sfx_cattomSpeak1", 10) *
 
                             Option("Back") *
                                 Back()
                         ) *
 
                     Option("Yes! I think the butler is suspicous!") *
-                        SpeakLot("What? No! The butler wouldn't hurt a fly.", "Sounds/textMeow", 10) *
+                        SpeakLot("What? No! The butler wouldn't hurt a fly.", "Sounds/sfx_cattomSpeak1", 10) *
                         Options
                         (
                             Option("Really? He always seems cold to me...") *
-                                SpeakLot("He's just shy. Trust me.", "Sounds/textMeow", 10) *
+                                SpeakLot("He's just shy. Trust me.", "Sounds/sfx_cattomSpeak1", 10) *
                                 Options
                                 (
                                     Option("Ok...") *
