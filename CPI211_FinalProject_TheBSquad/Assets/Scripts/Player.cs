@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public AudioClip CatthewHurt;
+    public AudioClip CatthewImpact;
     
     
     private AudioSource playerSounds;
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
     public float damageDelay = 2f;
     private IEnumerator damageDelayRoutine;
     private bool[] healthPaws = new bool[6];
+    private bool canImpact = true;
 
     void Awake()//removed private
     {
@@ -75,12 +77,11 @@ public class Player : MonoBehaviour
     private void OnCollisionStay(Collision other)
     {
         // Ends game if  touches player
-        if(other.gameObject.CompareTag("Enemy") && damageDelayRoutine == null && canBeHurt == true)
+        if(other.gameObject.CompareTag("Enemy") && damageDelayRoutine == null && canBeHurt == true && gameObject.GetComponent<ThirdPersonCatControl>().AttackState == false)
         {
             health--;
 
             playerSounds.clip = CatthewHurt;
-            // playerSounds.volume = 0.5f;
             playerSounds.Play();
 
             if (health <= 0)
@@ -91,11 +92,22 @@ public class Player : MonoBehaviour
             damageDelayRoutine = DamageDelay();
             StartCoroutine(damageDelayRoutine);
         }
+
+        if(other.gameObject.CompareTag("Boss") && canBeHurt == true && gameObject.GetComponent<ThirdPersonCatControl>().AttackState == true && canImpact == true)
+        {
+            playerSounds.clip = CatthewImpact;
+            playerSounds.Play();
+            canImpact = false;
+        }
+
     }
 
     private void OnCollisionExit(Collision other)
     {
-
+        if(other.gameObject.CompareTag("Boss") && canBeHurt == true)
+        {
+            canImpact = true;
+        }
     }
 
     private IEnumerator DamageDelay()

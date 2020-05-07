@@ -15,8 +15,12 @@ namespace Fluent
 
         void OnTriggerEnter(Collider collider)
         {
-            FluentManager.Instance.AddScript(GetComponent<FluentScript>());
-            print("Found " + gameObject +"\n");
+            if (GameObject.Find("Catthew_SweetCat_s10").GetComponent<Player>().canBeHurt == false)
+            {
+                FluentManager.Instance.AddScript(GetComponent<FluentScript>());
+                print("Found " + gameObject +"\n");
+            }
+            
         }
 
         void OnTriggerExit(Collider collider)

@@ -56,7 +56,7 @@ public class TalkDungeonCat : ConversationWithImage
                                                         Do(() => boolean.DungeonFight = true) *
                                                         Do(() => boolean.FancyFight = false) *
                                                         SpeakLot("You know I've been down here rolling in my catnip all day Cattyboy. \n" +
-                                                        "I haven't even been upstairs much since I knew Katherine is allergic to the stuff.", "Sounds/sfx_dungeonCatSpeak1", 20) *
+                                                        "I hadn't even been near Kat much since I knew she was allergic to the stuff.", "Sounds/sfx_dungeonCatSpeak1", 20) *
                                                         Options(
                                                             Option("But who else would have such a compelling motive?") *
                                                                 SpeakLot("Butler Cat came down here yesterday and took some of my catnip. " +
@@ -78,7 +78,7 @@ public class TalkDungeonCat : ConversationWithImage
                 )
             ) *
             If(() => boolean.FancyHint == true,
-                SpeakLot("Why are you down here? Go away!", "Sounds/sfx_dungeonCatSpeak1", 5) *
+                SpeakLot("Why are you under here? Go away!", "Sounds/sfx_dungeonCatSpeak1", 5) *
                 Options(
                     Option("Ok") *
                         Hide() *
@@ -86,7 +86,7 @@ public class TalkDungeonCat : ConversationWithImage
                 )
             ) *
             If(() => boolean.CookFight == true,
-                SpeakLot("Why are you down here? Go away!", "Sounds/sfx_dungeonCatSpeak1", 5) *
+                SpeakLot("Why are you under here? Go away!", "Sounds/sfx_dungeonCatSpeak1", 5) *
                 Options(
                     Option("Ok") *
                         Hide() *
@@ -94,7 +94,7 @@ public class TalkDungeonCat : ConversationWithImage
                 )
             ) *
             If(() => boolean.PoisonHint == true,
-                SpeakLot("Why are you down here? Go away!", "Sounds/sfx_dungeonCatSpeak1", 5) *
+                SpeakLot("Why are you under here? Go away!", "Sounds/sfx_dungeonCatSpeak1", 5) *
                 Options(
                     Option("Ok") *
                         Hide() *
@@ -102,7 +102,7 @@ public class TalkDungeonCat : ConversationWithImage
                 )
             ) *
             If(() => boolean.Beginning == true,
-                SpeakLot("Why are you down here? Go away!", "Sounds/sfx_dungeonCatSpeak1", 5) *
+                SpeakLot("Why are you under here? Go away!", "Sounds/sfx_dungeonCatSpeak1", 5) *
                 Options(
                     Option("Ok") *
                         Hide() *

@@ -29,6 +29,7 @@ public class CookCat : MonoBehaviour
     private float close;
     private float originalFireRate;
     public AudioClip Cat_Hurt;
+    public AudioClip Knife_Throw;
     private AudioSource playerSounds;
 
     // Start is called before the first frame update
@@ -120,6 +121,10 @@ public class CookCat : MonoBehaviour
                 {
                     Vector3 position = transform.position + transform.forward/2;
                     GameObject bullet = Instantiate(projectile, position, transform.rotation);
+
+                    playerSounds.clip = Knife_Throw;
+                    playerSounds.Play();
+
                     Rigidbody rb = bullet.GetComponent<Rigidbody>();
                     if (rb != null || rb == null)
                     {

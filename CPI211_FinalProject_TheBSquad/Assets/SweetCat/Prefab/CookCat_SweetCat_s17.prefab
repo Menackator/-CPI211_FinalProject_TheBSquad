@@ -1047,7 +1047,7 @@ GameObject:
   - component: {fileID: 4864931427082543948}
   m_Layer: 0
   m_Name: CookCat_SweetCat_s17
-  m_TagString: Projectile
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1160,7 +1160,8 @@ MonoBehaviour:
   fireRate: 3
   bulletSpeed: 300
   maxDistance: 10
-  Cat_Hurt: {fileID: 0}
+  Cat_Hurt: {fileID: 8300000, guid: e530b66c0dc6ad1428dcc1afa6921067, type: 3}
+  Knife_Throw: {fileID: 8300000, guid: 073b5e56ca67459478402df1a1207976, type: 3}
 --- !u!82 &4864931427082543948
 AudioSource:
   m_ObjectHideFlags: 0

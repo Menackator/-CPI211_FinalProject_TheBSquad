@@ -30,14 +30,18 @@ namespace Fluent
             }
         }
 
-        public void Awake()
+        public void Start()
         {
+            ClosestActionUIText = GameObject.Find("ActionText");
+            PlayerObject = GameObject.Find("Catthew_SweetCat_s10");
+
             if (instance == null)
             {
-                DontDestroyOnLoad(gameObject);
+                // DontDestroyOnLoad(gameObject);
                 instance = this;
             } else if (instance != null)
             {
+                
                 Destroy(gameObject);
             }
         }

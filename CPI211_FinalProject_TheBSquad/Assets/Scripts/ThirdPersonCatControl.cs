@@ -18,6 +18,8 @@ using UnityStandardAssets.CrossPlatformInput;
         public float orig_AttackStateCooldown = 0.25f;
         public float AttackStateCooldown = 0.25f;
         public bool AttackState;
+        public AudioClip CatthewPounce;
+		private AudioSource playerSounds;
         private void Start()
         {
             // get the transform of the main camera
@@ -35,6 +37,7 @@ using UnityStandardAssets.CrossPlatformInput;
             // get the third person character ( this should never be null due to require component )
             m_Character = GetComponent<ThirdPersonCat>();
             m_Rigidbody = GetComponent<Rigidbody>();
+            playerSounds = GetComponent<AudioSource>();
         }
 
 
@@ -82,6 +85,9 @@ using UnityStandardAssets.CrossPlatformInput;
             // Rushing attack
             if (m_R && AttackStateCooldown >= 0f) //m_IsGrounded && 
 			{
+                playerSounds.clip = CatthewPounce;
+        		playerSounds.Play();
+
 				AttackState = true;
 			}
             

@@ -6,31 +6,40 @@ using System.Collections;
 public class TalkCattom : ConversationWithImage
 {
     public Booleans boolean;
+    public GameController Game;
 
     public override FluentNode Create()
     {
         return
             Show() *
             If(() => boolean.CattomFight == true,
-                Write(0, "...") *
-                Option("I have defeated you Cattom. The police are already on their way. And I recorded everything. What kind of detective doesn't record their investigations?") *
-                    SpeakLot("Rot in hell, Catthew.", "Sounds/sfx_cattomSpeak1", 5) *
-                        Option("You first.") *
-                            Pause(1) *
-                            Hide() *
-                            End()
+                SpeakLot("...ugh", "Sounds/sfx_cattomSpeak1", 1) *
+                Options(
+                    Option("I have defeated you Cattom. The police are already on their way. And I recorded everything. What kind of detective doesn't record their investigations?") *
+                        SpeakLot("Rot in hell, Catthew.", "Sounds/sfx_cattomSpeak1", 5) *
+                        Options(
+                            Option("You first.") *
+                            //game ends
+                                Pause(1) *
+                                Hide() *
+                                End()
+                        )
+                )
             ) *
             If(() => boolean.ButlerFight == true,
                 SpeakLot("I see you have learned the truth...", "Sounds/sfx_cattomSpeak1", 10) *
-                SpeakLot("It's actually pretty easy to betray someone when everything you thought was yours was going to get ripped away from you.","Sounds/sfx_cattomSpeak1", 20) *
+                SpeakLot("It's actually pretty easy to betray someone when everything you thought was yours was going to get ripped away from you.", "Sounds/sfx_cattomSpeak1", 20) *
                 SpeakLot(" It's not my fault you were Grandpa's favorite!", "Sounds/sfx_cattomSpeak1", 10) *
+                Options(
                     Option("He loved you too. But you... you never cared about this family. I know that now.") *
                         SpeakLot("Yes, and you know too much you weasel.  Which means not only Katherine but now you must die!", "Sounds/sfx_cattomSpeak1", 10) *
                             Pause(1) *
                             Do(() => boolean.CattomFight = true) *
                             Do(() => boolean.ButlerFight = false) *
+                            Do(() => Game.gameState = 8) *
                             Hide() *
                             End()
+                )
             ) *
             If(() => boolean.DungeonFight == true,
                 SpeakLot("Who could it be... perhaps you missed something?", "Sounds/sfx_cattomSpeak1", 10) *

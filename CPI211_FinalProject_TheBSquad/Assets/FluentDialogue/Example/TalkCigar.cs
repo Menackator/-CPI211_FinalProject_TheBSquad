@@ -12,7 +12,8 @@ public class TalkCigar : ConversationWithImage
         return
             If(() => boolean.FancyHint == true || boolean.CookFight == true,
                 Show() *
-                Write(0, "This looks like the kind of cigar Fancy Cat smokes! What is it doing in the kitchen? Maybe he is the culprit!") *
+                Write(0, "This looks like the kind of cigar Fancy Cat smokes! What is it doing in the kitchen? Maybe he is the culprit! \n" +
+                "I think I saw him in the upstairs bathroom...") *
                 Do(() => boolean.FancyHint = true) *
                 Do(() => boolean.CookFight = false) *
                 Pause(1) *

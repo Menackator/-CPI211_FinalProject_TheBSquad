@@ -247,6 +247,7 @@ MonoBehaviour:
   orig_AttackStateCooldown: 0.25
   AttackStateCooldown: 0.25
   AttackState: 0
+  CatthewPounce: {fileID: 8300000, guid: d5ebf72b9a8749046b1085faab729b9c, type: 3}
 --- !u!54 &8277296972294200380
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -276,6 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CatthewHurt: {fileID: 8300000, guid: 810e2e098ee89d644b6cc1bbf45b5e57, type: 3}
+  CatthewImpact: {fileID: 8300000, guid: a1786819093ccd9488f51b8b0589f56f, type: 3}
   canBeHurt: 0
   health: 6
   damageDelay: 2
