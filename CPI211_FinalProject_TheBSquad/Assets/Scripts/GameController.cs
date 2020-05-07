@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -301,6 +302,10 @@ public class GameController : MonoBehaviour
             }
 
             prevGameState = gameState;
+        }
+        else if (gameState == 10) // Cattom Fight Done - End
+        {
+            SceneManager.LoadScene("YouWin");
         }
     }
 }

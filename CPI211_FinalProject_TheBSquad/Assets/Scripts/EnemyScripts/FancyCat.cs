@@ -14,25 +14,30 @@ public class FancyCat : MonoBehaviour
     public AudioClip Cat_Hurt;
     public float damageDelay = 2f;
     private IEnumerator damageDelayRoutine;
-    public GameObject player;
-    public GameObject projectile;
     public int health = 4;
-    
-    public float attackDis = 5;
     public bool Aggro = false;
 
-    private NavMeshAgent benny;
+    public float fireRate = 3;
+    public float bulletSpeed = 300; 
+    public float maxDistance = 10;
+    private NavMeshAgent enemy;
+    private Vector3 originalPosition;
     private float distance;
-    private bool canMove;
-    private float closeAttack;
-    private int dungPro = 0;
+    private float far;
+    private float close;
+    private float originalFireRate;
+    public AudioClip Knife_Throw;
+    public GameObject player;
+    public GameObject projectile;
 
     // Start is called before the first frame update
     void Start()
     {
-        benny = GetComponent<NavMeshAgent>();
-        canMove = true;
-        closeAttack = attackDis *(.2f);
+        enemy = GetComponent<NavMeshAgent>();
+        originalPosition = gameObject.transform.localPosition;
+        far = (float)(maxDistance * (2.0 / 3.0));
+        close = (float)(maxDistance * (1.0 / 3.0));
+        originalFireRate = fireRate;
 
         // Health setup
         prevHealth = health;
@@ -82,17 +87,56 @@ public class FancyCat : MonoBehaviour
             }
 
             //calculates distance between player and the enemy. 
-            distance = Vector3.Distance(player.transform.position, benny.transform.position);
+            distance = Vector3.Distance(player.transform.position, enemy.transform.position);
 
-            if (canMove)
+            if (player != null && distance <= maxDistance)
             {
-                benny.destination = player.transform.position;
+                transform.LookAt(player.transform);
             }
 
-            if(distance <= attackDis && distance > closeAttack)
+            //if enemy is within distance of player, follow him. If not, stay put. 
+            if (distance < maxDistance)
             {
-                canMove = true;
-                ProjectileAttack();
+                fireRate -= Time.deltaTime;
+
+                if ((distance > far))       //too far away
+                {
+                    enemy.destination = player.transform.position;
+                }
+                if((distance <= far) && (distance >= close))    //perfect distance
+                {
+                    enemy.destination = gameObject.transform.localPosition;
+                }
+                if ((distance < close))     //too close
+                {
+                    Vector3 dir = transform.position - player.transform.position;
+                    Vector3 newPos = (transform.position + dir.normalized);
+                    enemy.destination = newPos;
+                }
+
+                //throw projectile
+                if (fireRate <= 0)
+                {
+                    Vector3 position = transform.position + transform.forward/2;
+                    GameObject bullet = Instantiate(projectile, position, transform.rotation);
+
+                    playerSounds.clip = Knife_Throw;
+                    playerSounds.Play();
+
+                    Rigidbody rb = bullet.GetComponent<Rigidbody>();
+                    if (rb != null || rb == null)
+                    {
+                        Debug.Log("FIRE!");
+                        rb.AddForce(transform.forward * bulletSpeed);
+                        Destroy(bullet, 3f);
+                    }
+                    fireRate = originalFireRate;
+                }
+
+            }
+            else
+            {
+                enemy.destination = originalPosition;
             }
         }
         else
@@ -104,23 +148,6 @@ public class FancyCat : MonoBehaviour
             {
                 Cat_Health.SetActive(false);
             }
-        }
-    }
-
-    void ProjectileAttack()
-    {
-        Vector3 spawnPos = new Vector3(player.transform.position.x, player.transform.position.y + 10, player.transform.position.z);
-        Vector3 position = player.transform.position + player.transform.up + player.transform.forward;
-        dungPro = GameObject.FindGameObjectsWithTag("Dungeon Projectile").Length;
-        if (dungPro <= 20)
-        {
-            GameObject bullet = Instantiate(projectile, spawnPos, transform.rotation);
-            Rigidbody rb = bullet.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.AddForce(0, -100, 0);
-            }
-            Destroy(bullet, 3f);
         }
     }
 

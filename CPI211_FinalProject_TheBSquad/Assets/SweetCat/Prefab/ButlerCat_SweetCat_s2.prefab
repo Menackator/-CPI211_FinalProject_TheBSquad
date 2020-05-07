@@ -417,13 +417,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cat_Hurt: {fileID: 8300000, guid: b00c8cb59d5dfeb4fb5317057549e579, type: 3}
   damageDelay: 2
-  player: {fileID: 0}
-  rush: {fileID: 0}
-  projectile: {fileID: 0}
   health: 8
-  maxSpawnRush: 3
-  maxSpawnProjectile: 3
-  spawnDelay: 3
+  fireRate: 3
+  bulletSpeed: 300
+  maxDistance: 10
+  Knife_Throw: {fileID: 8300000, guid: 073b5e56ca67459478402df1a1207976, type: 3}
+  player: {fileID: 0}
+  projectile: {fileID: 0}
   Aggro: 0
 --- !u!195 &2254399593105365250
 NavMeshAgent:

@@ -10,27 +10,26 @@ public class CookCat : MonoBehaviour
     private bool[] healthPaws = new bool[3];
     public float damageDelay = 2f;
     private IEnumerator damageDelayRoutine;
-
-    public GameObject player;
-    public GameObject projectile;
+    public AudioClip Cat_Hurt;
+    private AudioSource playerSounds;
     private GameObject Cat_Health;
+    private Vector3 idlePosition;
+    private Quaternion idleRotation;
     public bool Aggro = false;
     
     public float fireRate = 3;
     public float bulletSpeed = 300; 
     public float maxDistance = 10;
-
     private NavMeshAgent enemy;
     private Vector3 originalPosition;
     private float distance;
-    private Vector3 idlePosition;
-    private Quaternion idleRotation;
     private float far;
     private float close;
     private float originalFireRate;
-    public AudioClip Cat_Hurt;
     public AudioClip Knife_Throw;
-    private AudioSource playerSounds;
+    public GameObject player;
+    public GameObject projectile;
+    
 
     // Start is called before the first frame update
     void Start()

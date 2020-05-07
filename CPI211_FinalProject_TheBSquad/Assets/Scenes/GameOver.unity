@@ -248,6 +248,16 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4833746790879683329, guid: deb67dda0cf8b2f4291833502db0bfc9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 118330286}
+    - target: {fileID: 4833746790879683329, guid: deb67dda0cf8b2f4291833502db0bfc9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
     - target: {fileID: 4833746790879683334, guid: deb67dda0cf8b2f4291833502db0bfc9,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -293,6 +303,21 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4833746792466229499, guid: deb67dda0cf8b2f4291833502db0bfc9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833746792466229499, guid: deb67dda0cf8b2f4291833502db0bfc9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 118330286}
+    - target: {fileID: 4833746792466229499, guid: deb67dda0cf8b2f4291833502db0bfc9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayGame
+      objectReference: {fileID: 0}
     - target: {fileID: 6053597277633379831, guid: deb67dda0cf8b2f4291833502db0bfc9,
         type: 3}
       propertyPath: m_Texture
@@ -300,6 +325,18 @@ PrefabInstance:
       objectReference: {fileID: 2800000, guid: bc03c7cbff9da854a8dcca584e569fcb, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deb67dda0cf8b2f4291833502db0bfc9, type: 3}
+--- !u!114 &118330286 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6284919614949344244, guid: deb67dda0cf8b2f4291833502db0bfc9,
+    type: 3}
+  m_PrefabInstance: {fileID: 118330285}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad40d50fc257a1a498b75ef472cb388f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1333203887
 GameObject:
   m_ObjectHideFlags: 0

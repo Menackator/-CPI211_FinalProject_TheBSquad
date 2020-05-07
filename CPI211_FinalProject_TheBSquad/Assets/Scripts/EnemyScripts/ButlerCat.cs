@@ -14,28 +14,30 @@ public class ButlerCat : MonoBehaviour
     public AudioClip Cat_Hurt;
     public float damageDelay = 2f;
     private IEnumerator damageDelayRoutine;
-    public GameObject player;
-    public GameObject rush;         //rush enemy
-    public GameObject projectile;   //projectile enemy
     public int health = 5;
-    public int maxSpawnRush = 3;
-    public int maxSpawnProjectile = 3;
-    public int spawnDelay = 3;
 
-    private NavMeshAgent oliver;    //fancy cat name
+    public float fireRate = 3;
+    public float bulletSpeed = 300; 
+    public float maxDistance = 10;
+    private NavMeshAgent enemy;
     private Vector3 originalPosition;
-    private int rushCount = 0;
-    private int projectileCount = 0;
-    private bool enemySpawned;
+    private float distance;
+    private float far;
+    private float close;
+    private float originalFireRate;
+    public AudioClip Knife_Throw;
+    public GameObject player;
+    public GameObject projectile;
     public bool Aggro = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        oliver = GetComponent<NavMeshAgent>();
-        originalPosition = transform.localPosition;
-
-        enemySpawned = false;
+        enemy = GetComponent<NavMeshAgent>();
+        originalPosition = gameObject.transform.localPosition;
+        far = (float)(maxDistance * (2.0 / 3.0));
+        close = (float)(maxDistance * (1.0 / 3.0));
+        originalFireRate = fireRate;
 
         // Health setup
         prevHealth = health;
@@ -84,20 +86,57 @@ public class ButlerCat : MonoBehaviour
                 prevHealth = health;
             }
 
-            Vector3 dir = transform.position - player.transform.position;
-            Vector3 newPos = (transform.position + dir.normalized);
-            oliver.destination = newPos;
+            //calculates distance between player and the enemy. 
+            distance = Vector3.Distance(player.transform.position, enemy.transform.position);
 
-            rushCount = GameObject.FindGameObjectsWithTag("Rush").Length;               //number of rush enemies present
-            projectileCount = GameObject.FindGameObjectsWithTag("Projectile").Length;   //number of projectile enemies present
-
-            if (rushCount < maxSpawnRush && !enemySpawned)
+            if (player != null && distance <= maxDistance)
             {
-                StartCoroutine(SpawnWait(rush));
+                transform.LookAt(player.transform);
             }
-            if (projectileCount < maxSpawnProjectile && !enemySpawned)
+
+            //if enemy is within distance of player, follow him. If not, stay put. 
+            if (distance < maxDistance)
             {
-                StartCoroutine(SpawnWait(projectile));
+                fireRate -= Time.deltaTime;
+
+                if ((distance > far))       //too far away
+                {
+                    enemy.destination = player.transform.position;
+                }
+                if((distance <= far) && (distance >= close))    //perfect distance
+                {
+                    enemy.destination = gameObject.transform.localPosition;
+                }
+                if ((distance < close))     //too close
+                {
+                    Vector3 dir = transform.position - player.transform.position;
+                    Vector3 newPos = (transform.position + dir.normalized);
+                    enemy.destination = newPos;
+                }
+
+                //throw projectile
+                if (fireRate <= 0)
+                {
+                    Vector3 position = transform.position + transform.forward/2;
+                    GameObject bullet = Instantiate(projectile, position, transform.rotation);
+
+                    playerSounds.clip = Knife_Throw;
+                    playerSounds.Play();
+
+                    Rigidbody rb = bullet.GetComponent<Rigidbody>();
+                    if (rb != null || rb == null)
+                    {
+                        Debug.Log("FIRE!");
+                        rb.AddForce(transform.forward * bulletSpeed);
+                        Destroy(bullet, 3f);
+                    }
+                    fireRate = originalFireRate;
+                }
+
+            }
+            else
+            {
+                enemy.destination = originalPosition;
             }
         }
         else
@@ -110,21 +149,6 @@ public class ButlerCat : MonoBehaviour
                 Cat_Health.SetActive(false);
             }
         }
-    }
-
-    private void SpawnEnemy(GameObject enemyType)
-    {
-        Vector3 position = transform.position - transform.forward;
-        GameObject enemy = Instantiate(enemyType, position, transform.rotation);
-        enemySpawned = false;
-    }
-
-    IEnumerator SpawnWait(GameObject enemyType)
-    {
-        enemySpawned = true;
-        yield return new WaitForSeconds(spawnDelay);
-        SpawnEnemy(enemyType);
-        yield return null;
     }
 
     private void OnCollisionStay(Collision collision)

@@ -14,12 +14,14 @@ ScriptsOnlyBuild:
     - MainMenu
     - Player
     - Projectile
+    - StartMenu
     - TalkButlerCat
     - TalkCattom
     - TalkCigar
     - TalkCookCat
     - TalkDiary
     - TalkDungeonCat
+    - TalkEmpty
     - TalkFancyCat
     - TalkNote
     - ThirdPersonCat
@@ -113,91 +115,93 @@ ScriptsOnlyBuild:
     - Class: 111
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11220}
+      Script: {instanceID: 11222}
     - Class: 114
-      Script: {instanceID: 11258}
-    - Class: 114
-      Script: {instanceID: 11290}
+      Script: {instanceID: 11260}
     - Class: 114
       Script: {instanceID: 11292}
     - Class: 114
-      Script: {instanceID: 11408}
+      Script: {instanceID: 11294}
     - Class: 114
-      Script: {instanceID: 11412}
+      Script: {instanceID: 11410}
     - Class: 114
-      Script: {instanceID: 11456}
+      Script: {instanceID: 11414}
     - Class: 114
-      Script: {instanceID: 11472}
+      Script: {instanceID: 11458}
     - Class: 114
-      Script: {instanceID: 11578}
+      Script: {instanceID: 11474}
     - Class: 114
-      Script: {instanceID: 11598}
+      Script: {instanceID: 11526}
     - Class: 114
-      Script: {instanceID: 11644}
+      Script: {instanceID: 11582}
     - Class: 114
-      Script: {instanceID: 11774}
+      Script: {instanceID: 11602}
     - Class: 114
-      Script: {instanceID: 11798}
+      Script: {instanceID: 11648}
     - Class: 114
-      Script: {instanceID: 11824}
+      Script: {instanceID: 11778}
     - Class: 114
-      Script: {instanceID: 11906}
+      Script: {instanceID: 11802}
     - Class: 114
-      Script: {instanceID: 11940}
+      Script: {instanceID: 11828}
     - Class: 114
-      Script: {instanceID: 12054}
+      Script: {instanceID: 11910}
     - Class: 114
-      Script: {instanceID: 12060}
+      Script: {instanceID: 11944}
     - Class: 114
-      Script: {instanceID: 12104}
+      Script: {instanceID: 12058}
     - Class: 114
-      Script: {instanceID: 12152}
+      Script: {instanceID: 12064}
     - Class: 114
-      Script: {instanceID: 12154}
+      Script: {instanceID: 12108}
     - Class: 114
-      Script: {instanceID: 12208}
+      Script: {instanceID: 12156}
     - Class: 114
-      Script: {instanceID: 12278}
+      Script: {instanceID: 12158}
     - Class: 114
-      Script: {instanceID: 12346}
+      Script: {instanceID: 12212}
     - Class: 114
-      Script: {instanceID: 12408}
+      Script: {instanceID: 12282}
     - Class: 114
-      Script: {instanceID: 12516}
+      Script: {instanceID: 12350}
     - Class: 114
-      Script: {instanceID: 12640}
+      Script: {instanceID: 12412}
     - Class: 114
-      Script: {instanceID: 12656}
+      Script: {instanceID: 12520}
+    - Class: 114
+      Script: {instanceID: 12644}
     - Class: 114
       Script: {instanceID: 12660}
     - Class: 114
-      Script: {instanceID: 12892}
+      Script: {instanceID: 12664}
     - Class: 114
-      Script: {instanceID: 12900}
+      Script: {instanceID: 12896}
     - Class: 114
-      Script: {instanceID: 12926}
+      Script: {instanceID: 12904}
     - Class: 114
-      Script: {instanceID: 12978}
+      Script: {instanceID: 12930}
     - Class: 114
-      Script: {instanceID: 13006}
+      Script: {instanceID: 12982}
     - Class: 114
-      Script: {instanceID: 13124}
+      Script: {instanceID: 13010}
     - Class: 114
-      Script: {instanceID: 13132}
+      Script: {instanceID: 13128}
     - Class: 114
-      Script: {instanceID: 13288}
+      Script: {instanceID: 13136}
     - Class: 114
-      Script: {instanceID: 13332}
+      Script: {instanceID: 13292}
     - Class: 114
-      Script: {instanceID: 13354}
+      Script: {instanceID: 13336}
     - Class: 114
-      Script: {instanceID: 13362}
+      Script: {instanceID: 13358}
     - Class: 114
-      Script: {instanceID: 13400}
+      Script: {instanceID: 13366}
     - Class: 114
-      Script: {instanceID: 13432}
+      Script: {instanceID: 13404}
     - Class: 114
-      Script: {instanceID: 13446}
+      Script: {instanceID: 13436}
+    - Class: 114
+      Script: {instanceID: 13450}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -258,26 +262,22 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11220}
+      Script: {instanceID: 11222}
     - Class: 114
-      Script: {instanceID: 11408}
+      Script: {instanceID: 11458}
     - Class: 114
-      Script: {instanceID: 11456}
+      Script: {instanceID: 11910}
     - Class: 114
-      Script: {instanceID: 11906}
+      Script: {instanceID: 12412}
     - Class: 114
-      Script: {instanceID: 12408}
+      Script: {instanceID: 12440}
     - Class: 114
-      Script: {instanceID: 12436}
+      Script: {instanceID: 12982}
     - Class: 114
-      Script: {instanceID: 12978}
+      Script: {instanceID: 13372}
     - Class: 114
-      Script: {instanceID: 13368}
-    - Class: 114
-      Script: {instanceID: 13400}
+      Script: {instanceID: 13404}
     - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -327,41 +327,41 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11220}
     - Class: 114
-      Script: {instanceID: 11408}
+      Script: {instanceID: 11222}
     - Class: 114
-      Script: {instanceID: 11456}
+      Script: {instanceID: 11410}
     - Class: 114
-      Script: {instanceID: 11598}
+      Script: {instanceID: 11458}
     - Class: 114
-      Script: {instanceID: 11906}
+      Script: {instanceID: 11602}
     - Class: 114
-      Script: {instanceID: 11952}
+      Script: {instanceID: 11910}
     - Class: 114
-      Script: {instanceID: 12278}
+      Script: {instanceID: 11956}
     - Class: 114
-      Script: {instanceID: 12408}
+      Script: {instanceID: 12282}
     - Class: 114
-      Script: {instanceID: 12436}
+      Script: {instanceID: 12412}
     - Class: 114
-      Script: {instanceID: 12656}
+      Script: {instanceID: 12440}
     - Class: 114
       Script: {instanceID: 12660}
     - Class: 114
-      Script: {instanceID: 12674}
+      Script: {instanceID: 12664}
     - Class: 114
-      Script: {instanceID: 12900}
+      Script: {instanceID: 12678}
     - Class: 114
-      Script: {instanceID: 12978}
+      Script: {instanceID: 12904}
     - Class: 114
-      Script: {instanceID: 13168}
+      Script: {instanceID: 12982}
     - Class: 114
-      Script: {instanceID: 13286}
+      Script: {instanceID: 13172}
     - Class: 114
-      Script: {instanceID: 13354}
+      Script: {instanceID: 13290}
     - Class: 114
-      Script: {instanceID: 13368}
+      Script: {instanceID: 13358}
     - Class: 114
-      Script: {instanceID: 13400}
+      Script: {instanceID: 13404}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -378,7 +378,66 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
+    Assets/Scenes/YouWin.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11222}
+    - Class: 114
+      Script: {instanceID: 11458}
+    - Class: 114
+      Script: {instanceID: 11910}
+    - Class: 114
+      Script: {instanceID: 12412}
+    - Class: 114
+      Script: {instanceID: 12440}
+    - Class: 114
+      Script: {instanceID: 12982}
+    - Class: 114
+      Script: {instanceID: 13372}
+    - Class: 114
+      Script: {instanceID: 13404}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: ced5e0e8697ebfc05a8a097ced9d8006
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StartMenu
   - hash:
       serializedVersion: 2
       Hash: 4bc4346a71a8df53a6b106f68ef3a190
@@ -583,6 +642,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: UnityStandardAssets.Water
     className: WaterBase
+  - hash:
+      serializedVersion: 2
+      Hash: 33de74f3ca589883e95df7d93ea8f054
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TalkEmpty
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -873,7 +938,7 @@ ScriptsOnlyBuild:
     className: PlatformSpecificContent
   - hash:
       serializedVersion: 2
-      Hash: 1ac7293b5d72614ad01f3a7363268667
+      Hash: a2e7543ad2a4b058eae9d64336200a14
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CookCat
@@ -885,7 +950,7 @@ ScriptsOnlyBuild:
     className: ThirdPersonCharacter
   - hash:
       serializedVersion: 2
-      Hash: 8a028336327099ac2aae27ec0bc6316f
+      Hash: 30fdcb4957d44069d09299dbf8bf1bd4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FancyCat
@@ -897,7 +962,7 @@ ScriptsOnlyBuild:
     className: ActivateTrigger
   - hash:
       serializedVersion: 2
-      Hash: 33de74f3ca589883e95df7d93ea8f054
+      Hash: 91273eb38699eb7ca7926263ba0372cc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TalkCattom
@@ -939,7 +1004,7 @@ ScriptsOnlyBuild:
     className: LookatTarget
   - hash:
       serializedVersion: 2
-      Hash: f66244b7545c3911b5a9e0680bf7d018
+      Hash: 5d8df0596e12ebbc996ec50e359a2cd6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameController
@@ -1209,7 +1274,7 @@ ScriptsOnlyBuild:
     className: Water
   - hash:
       serializedVersion: 2
-      Hash: 33de74f3ca589883e95df7d93ea8f054
+      Hash: 91273eb38699eb7ca7926263ba0372cc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TalkButlerCat
@@ -1359,7 +1424,7 @@ ScriptsOnlyBuild:
     className: ThirdPersonCamera
   - hash:
       serializedVersion: 2
-      Hash: 33de74f3ca589883e95df7d93ea8f054
+      Hash: 91273eb38699eb7ca7926263ba0372cc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TalkFancyCat
@@ -1383,7 +1448,7 @@ ScriptsOnlyBuild:
     className: CarAudio
   - hash:
       serializedVersion: 2
-      Hash: a51b69e2fd79b54a93aa9d8719c36d9e
+      Hash: 663a07300c84f2e887bbea258c56d640
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ThirdPersonCatControl
@@ -1443,7 +1508,7 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: ddf5af0d78653334c5e4478805539995
+      Hash: b37a302d11817b39ab09d67f7632fa84
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Cattom
@@ -1653,7 +1718,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMesh
   - hash:
       serializedVersion: 2
-      Hash: a2de39fa55325d04c171325a73e980d5
+      Hash: de1ee82810cbc2997166d249f8bdbf36
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -1707,7 +1772,7 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
-      Hash: 0a1b14fa29138774b32c3af1b7f5c960
+      Hash: b37a302d11817b39ab09d67f7632fa84
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ButlerCat
@@ -1734,4 +1799,5 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/Combined_Mansion_Level.unity
   - Assets/Scenes/GameOver.unity
+  - Assets/Scenes/YouWin.unity
   playerPath: C:/Users/laros/Desktop/Test/CPI211_FinalProject_TheBSquad.exe

@@ -14,30 +14,30 @@ public class Cattom : MonoBehaviour
     public AudioClip Cat_Hurt;
     public float damageDelay = 2f;
     private IEnumerator damageDelayRoutine;
+    public int health = 6;
+
+    public float fireRate = 3;
+    public float bulletSpeed = 300; 
+    public float maxDistance = 10;
+    private NavMeshAgent enemy;
+    private Vector3 originalPosition;
+    private float distance;
+    private float far;
+    private float close;
+    private float originalFireRate;
+    public AudioClip Knife_Throw;
     public GameObject player;
     public GameObject projectile;
-    public GameObject defProjectile;
-    public int health = 6;
-    public float maxDistance = 10;
-    public float fireRate = 3;
-    public float bulletSpeed = 100;
-
-    private NavMeshAgent cattom;
-    private float distance;
-    private float midDistance;
-    private float closeDistance;
-    private int midCount = 0;
-    private bool tooFar;
-    private bool defAttack;
     public bool Aggro = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        cattom = GetComponent<NavMeshAgent>();
-        midDistance = maxDistance * (.5f);
-        closeDistance = maxDistance * (.1f);
-        tooFar = false;
+        enemy = GetComponent<NavMeshAgent>();
+        originalPosition = gameObject.transform.localPosition;
+        far = (float)(maxDistance * (2.0 / 3.0));
+        close = (float)(maxDistance * (1.0 / 3.0));
+        originalFireRate = fireRate;
 
         // Health setup
         prevHealth = health;
@@ -86,28 +86,57 @@ public class Cattom : MonoBehaviour
                 prevHealth = health;
             }
 
-            distance = Vector3.Distance(player.transform.position, transform.position);
+            //calculates distance between player and the enemy. 
+            distance = Vector3.Distance(player.transform.position, enemy.transform.position);
 
-            if(distance > midDistance)
+            if (player != null && distance <= maxDistance)
             {
-                cattom.destination = player.transform.position;
-                if (distance < maxDistance)
+                transform.LookAt(player.transform);
+            }
+
+            //if enemy is within distance of player, follow him. If not, stay put. 
+            if (distance < maxDistance)
+            {
+                fireRate -= Time.deltaTime;
+
+                if ((distance > far))       //too far away
                 {
-                    StartCoroutine(FarAttack());
+                    enemy.destination = player.transform.position;
                 }
+                if((distance <= far) && (distance >= close))    //perfect distance
+                {
+                    enemy.destination = gameObject.transform.localPosition;
+                }
+                if ((distance < close))     //too close
+                {
+                    Vector3 dir = transform.position - player.transform.position;
+                    Vector3 newPos = (transform.position + dir.normalized);
+                    enemy.destination = newPos;
+                }
+
+                //throw projectile
+                if (fireRate <= 0)
+                {
+                    Vector3 position = transform.position + transform.forward/2;
+                    GameObject bullet = Instantiate(projectile, position, transform.rotation);
+
+                    playerSounds.clip = Knife_Throw;
+                    playerSounds.Play();
+
+                    Rigidbody rb = bullet.GetComponent<Rigidbody>();
+                    if (rb != null || rb == null)
+                    {
+                        Debug.Log("FIRE!");
+                        rb.AddForce(transform.forward * bulletSpeed);
+                        Destroy(bullet, 3f);
+                    }
+                    fireRate = originalFireRate;
+                }
+
             }
-            if(distance <= midDistance && distance >= closeDistance)
+            else
             {
-                cattom.destination = gameObject.transform.localPosition;
-                MidAttack();
-            }
-            if(distance < closeDistance)
-            {
-                Vector3 dir = transform.position - player.transform.position;
-                Vector3 newPos = (transform.position + dir.normalized);
-                cattom.destination = newPos;
-                defAttack = true;
-                StartCoroutine(CloseAttack());
+                enemy.destination = originalPosition;
             }
         }
         else
@@ -120,64 +149,6 @@ public class Cattom : MonoBehaviour
                 Cat_Health.SetActive(false);
             }
         }
-    }
-
-    IEnumerator FarAttack()
-    {
-        yield return new WaitForSeconds(fireRate);
-        tooFar = true;
-        ProjectileAttack();
-        yield return null;
-    }
-
-    IEnumerator CloseAttack()
-    {
-        yield return new WaitForSeconds(3);
-        Defense();
-        yield return null;
-    }
-
-    private void ProjectileAttack()
-    {
-        if (tooFar)
-        {
-            Vector3 position = transform.position + transform.forward;
-            GameObject bullet = Instantiate(projectile, position, transform.rotation);
-            Rigidbody rb = bullet.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.AddForce(transform.forward * bulletSpeed);
-                Destroy(bullet, 2f);
-            }
-            tooFar = false;
-        }
-    }
-
-    private void MidAttack()
-    {
-        Vector3 spawnPos = new Vector3(player.transform.position.x, player.transform.position.y + 5, player.transform.position.z);
-        Vector3 position = player.transform.position + player.transform.up + player.transform.forward;
-        midCount = GameObject.FindGameObjectsWithTag("Projectile").Length;
-        if (midCount <= 10)
-        {
-            GameObject bullet = Instantiate(defProjectile, spawnPos, transform.rotation);
-            Rigidbody rb = bullet.GetComponent<Rigidbody>();
-            Destroy(bullet, 1f);
-        }
-    }
-
-    private void Defense()
-    {
-        if (defAttack)
-        {
-            Debug.Log("Uh oh");
-            Vector3 position = transform.position;
-            GameObject attack = Instantiate(defProjectile, position, transform.rotation);
-
-            attack.transform.position = transform.position;
-            Destroy(attack, 1f);
-        }
-        defAttack = false;
     }
 
     private void OnCollisionStay(Collision collision)

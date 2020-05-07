@@ -21,6 +21,7 @@ public class TalkCattom : ConversationWithImage
                             Option("You first.") *
                             //game ends
                                 Pause(1) *
+                                Do(() => Game.gameState = 10) *
                                 Hide() *
                                 End()
                         )
